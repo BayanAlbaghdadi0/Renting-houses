@@ -8,7 +8,7 @@ export const Signup = () => {
         <img
           src={houseImage}
           alt="house"
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-full rounded-lg ml-8"
         />
       </div>
       <div className="flex justify-center items-center w-full md:w-1/2">
