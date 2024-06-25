@@ -5,9 +5,9 @@ async function connectDB(MONGO_URL){
  
 
 
-  mongoose.connect(MONGO_URL)
+ await mongoose.connect(MONGO_URL)
     .then(() => {
-      console.log('done');
+      console.log('connection with database is done');
     
     })
     .catch(error => {
