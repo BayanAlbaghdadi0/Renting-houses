@@ -17,10 +17,13 @@ const apartmentModel =  mongoose.Schema(
 },
 clientId:{
    type:String
-}
+},
+appartmentarea: {type:String,
+   require: true,
+},
 
   },
 
 );
-const Owner = mongoose.model("Owner", ownermodel);
-module.exports = {Owner};
+const appartment = mongoose.model("Owner", apartmentModel);
+module.exports = {appartment};
