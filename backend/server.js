@@ -1,20 +1,17 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
+const appatmentrouter= require('./route/appartment')
+
 const app = express();
-dotenv.config()
+require('dotenv').config();
 
-const connectDB = require('./db/connectDb');
-const port = process.env.PORT || 3000
+const port =process.env.PORT||3000
 const MONGO_URL = process.env.MONGO_URL
-
-dotenv.config()
-
 app.use(express.json());
-  
-console.log("hi")
-const s="s"
+const connectionDataBase = require('./db/connectDb');
+
+app.use('/apartment',appatmentrouter)
 const users = [
   {
     id: 1,
@@ -47,8 +44,8 @@ app.post('/login', async (req, res) => {
 
   res.json({ token });
 });
-  
-connectDB(MONGO_URL)
+
+connectionDataBase(MONGO_URL)
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port `);
 });

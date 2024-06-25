@@ -2,10 +2,7 @@ const mongoose = require("mongoose");
 
 const ownermodel =  mongoose.Schema(
   {
-    code: {
-      type: String,
-      require: true,
-    },
+   
  username: {type:String,
     require: true,
  },
@@ -26,6 +23,10 @@ appartmentId:{
    default:"user"
 }
   },
+  {
+   timestamps:true
+  }
+
 
 );
 const Owner = mongoose.model("Owner", ownermodel);
