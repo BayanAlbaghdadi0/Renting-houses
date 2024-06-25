@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const appatmentrouter= require('./route/appartment')
 
 const app = express();
 require('dotenv').config();
@@ -10,6 +11,7 @@ const MONGO_URL = process.env.MONGO_URL
 app.use(express.json());
 const connectionDataBase = require('./db/connectDb');
 
+app.use('/apartment',appatmentrouter)
 const users = [
   {
     id: 1,
