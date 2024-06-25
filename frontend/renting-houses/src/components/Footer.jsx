@@ -1,8 +1,8 @@
 
 function Footer(){
     return (
-        <footer className="footer bg-slate-300 text-base-content rounded p-10 flex flex-col items-center">
-        <nav className="text-gray-600 grid grid-flow-col gap-8">
+        <footer className="footer text-base-content rounded p-10 flex flex-col items-center">
+        <nav className="text-white grid grid-flow-col gap-8">
               <a href="#" className="hover:text-blue-500">
                 HOME
               </a>
@@ -14,7 +14,7 @@ function Footer(){
               </a>
             </nav>
         <nav >
-          <div className="text-gray-600 flex gap-8">
+          <div className="text-white flex gap-8">
             <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ function Footer(){
             </a>
           </div>
         </nav>
-        <aside className="text-center text-gray-600">
+        <aside className="text-center text-white">
           <p>Copyright © ${new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
         </aside>
   </footer>

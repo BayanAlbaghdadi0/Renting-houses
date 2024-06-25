@@ -1,6 +1,10 @@
 import React from 'react'
 import Header from '../../components/Nav'
+import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
+import Filter from '../../components/Filter'
+import Card from '../../components/Card'
+import CardList from '../../components/Card'
 
 
 function Home() {
@@ -24,6 +28,10 @@ function Home() {
           </div>
         </div>
       </div>
+      <Filter />
+      {/* <Card /> */}
+      <CardList />
+      <Footer />
     </div>
   )
 }
