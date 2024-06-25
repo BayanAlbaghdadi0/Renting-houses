@@ -57,16 +57,23 @@ export const Signup = () => {
               placeholder="Password"
             />
           </label>
-          <p className="text-lg text-center font-medium  mt-4 hover:[text-shadow:1px_1px_5px_#3333ff]">If you have an account you can Login 🌌</p>
-          <Link className="block w-1/2 m-auto" to="/login">
-            <button className="w-full btn btn-outline mt-3">Login</button>
-          </Link>
-          <Link className="block w-1/2 m-auto" to="/">
-            <button className="btn btn-outline btn-info w-full mt-3">
-              back to home
-            </button>
-            
-          </Link>
+          <button className="btn btn-outline btn-info">Signup</button>
+
+          <p className="text-lg text-center font-medium  mt-4 hover:[text-shadow:1px_1px_5px_#3333ff]">
+            If you have an account you can Login 🌌
+          </p>
+          <div>
+            <div className="flex justify-between w-full gap-1">
+              <Link className="w-1/2" to="/login">
+                <button className="w-full btn btn-outline mt-3">Login</button>
+              </Link>
+              <Link className="w-1/2" to="/">
+                <button className="btn btn-outline btn-info w-full mt-3">
+                  back to home
+                </button>
+              </Link>
+            </div>
+          </div>
         </form>
       </div>
     </div>

@@ -16,27 +16,25 @@ const Header = () => {
           </h1>
         </div>
         <nav className="space-x-6 text-white">
-          <Link className="hover:text-blue-500" to="/">
+          <Link className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4" to="/">
             HOME
           </Link>
-          <Link className="hover:text-blue-500" to="/about">
+          <Link className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4" to="/about">
             ABOUT US
           </Link>
-          <Link className="hover:text-blue-500" to="/contact">
+          <Link className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4" to="/contact">
             CONTACT
           </Link>
         </nav>
-        <div className="flex items-center">
-          <Link className="hover:text-blue-500 text-white" to="/login">
-            Log in
+        <div className="flex items-center gap-2 ">
+          <Link className="hover:text-blue-500 text-white font-extrabold" to="/login">
+          <button className="btn btn-outline btn-sm">login</button>
           </Link>
           <Link to="/signup">
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mx-5"
-              type="button"
-            >
-              Sign up
-            </button>
+          <button className="btn btn-outline btn-info btn-sm">Signup</button>
+          </Link>
+          <Link to="/dashboard">
+          <button className="btn btn-outline btn-secondary btn-sm">Dashboard</button>
           </Link>
         </div>
       </div>
