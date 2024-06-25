@@ -103,7 +103,7 @@ const Card = ({ card }) => {
 
 const CardList = () => {
   return (
-    <div className="flex overflow-x-auto">
+    <div className="flex overflow-x-auto p-2">
     <div className="flex flex-nowrap gap-4">
       {cardsData.map((card) => (
         <Card key={card.id} card={card} />
