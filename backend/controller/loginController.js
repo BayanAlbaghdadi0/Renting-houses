@@ -13,7 +13,9 @@ const users = [
       password: '$2b$10$0PZbZDmWZmWn8IbM3s2jG.2tFQr1xh3C6hUJ7y2jMfVg7x3I1zK8e' // Hashed password for 'password2'
     }
   ];
-  
+  function test(){
+    console.log("test")
+  }
 async function login()  {
     const { username, password } = req.body;
   
@@ -34,4 +36,4 @@ async function login()  {
     res.json({ token });
   };
 
-  module.exports={login}
+  module.exports={login,test}

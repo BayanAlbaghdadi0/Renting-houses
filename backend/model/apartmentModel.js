@@ -20,7 +20,8 @@ const apartmentModel =  mongoose.Schema(
    require: true,
 },
 clientId:{
-   type:Number
+   type:Number,
+   ref:'client',
 }
 
   },{
