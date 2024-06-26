@@ -4,7 +4,7 @@ import generateTokenAndSetCookie from "../utils/generateToken.js";
 
 export const signup = async (req, res) => {
 	try {
-		const { fullName, username, password,  } = req.body;
+		const {username, password,address,phone} = req.body;
 
 		if (password !== confirmPassword) {
 			return res.status(400).json({ error: "Passwords don't match" });
@@ -21,9 +21,10 @@ export const signup = async (req, res) => {
 		const hashedPassword = await bcrypt.hash(password, salt);
 
 		const newUser = new User({
-			fullName,
 			username,
 			password: hashedPassword,
+            address,
+            phone,
         });
 
 		if (newUser) {
@@ -33,10 +34,11 @@ export const signup = async (req, res) => {
 
 			res.status(201).json({
 				_id: newUser._id,
-				fullName: newUser.fullName,
 				username: newUser.username,
-				profilePic: newUser.profilePic,
-			});
+                password:newUser.password,
+                address:newUser.address,
+                phone:newUser.phone
+            });
 		} else {
 			res.status(400).json({ error: "Invalid user data" });
 		}
