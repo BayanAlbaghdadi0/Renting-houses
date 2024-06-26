@@ -1,20 +1,19 @@
-
+import { Link } from 'react-router-dom';
 function Footer(){
     return (
-        <footer className="footer bg-slate-300 text-base-content rounded p-10 flex flex-col items-center">
-        <nav className="text-gray-600 grid grid-flow-col gap-8">
-              <a href="#" className="hover:text-blue-500">
-                HOME
-              </a>
-              <a href="#" className="hover:text-blue-500">
-                ABOUT US
-              </a>
-              <a href="#" className="hover:text-blue-500">
-                CONTACT
-              </a>
-            </nav>
-        <nav >
-          <div className="text-gray-600 flex gap-8">
+        <footer className="footer text-base-content rounded p-10 flex flex-col items-center">
+        <nav className="space-x-6 text-white flex">
+          <Link className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4" to="/">
+            HOME
+          </Link>
+          <Link className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4" to="/about">
+            ABOUT US
+          </Link>
+          <Link className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4" to="/contact">
+            CONTACT
+          </Link>
+          </nav>
+          <div className="text-white flex gap-8">
             <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -49,8 +48,8 @@ function Footer(){
               </svg>
             </a>
           </div>
-        </nav>
-        <aside className="text-center text-gray-600">
+       
+        <aside className="text-center text-white">
           <p>Copyright © ${new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
         </aside>
   </footer>
