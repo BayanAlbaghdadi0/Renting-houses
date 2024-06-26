@@ -12,6 +12,10 @@ const apartmentModel =  mongoose.Schema(
  appartmentLocation: {type:String,
     require: true,
  },
+ img:{
+   type:Array,
+   default:[]
+ },
  appartmentarea: {type:String,
    require: true,
 },

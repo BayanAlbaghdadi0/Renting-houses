@@ -1,6 +1,8 @@
 const Apartment = require('../models/apartmentModel');
 
-
+const wellcome=(req,res)=>{
+ console.log("test")
+}
 const createApartment = async (req, res) => {
   try {
     const newApartment = await Apartment.create(req.body);
@@ -71,4 +73,5 @@ module.exports = {
   getApartmentById,
   updateApartmentById,
   deleteApartmentById,
+  wellcome,
 };
