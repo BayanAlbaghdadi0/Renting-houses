@@ -104,7 +104,6 @@ export const OwnerHouses = () => {
         {/* foot */}
         <tfoot>
           <tr>
-           
           </tr>
         </tfoot>
       </table>
