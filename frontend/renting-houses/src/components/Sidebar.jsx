@@ -35,7 +35,7 @@ export const Sidebar = () => {
               <ul className="menu menu-horizontal">
                 {/* Navbar menu content here */}
                 <li>
-                  <Link to="/">
+                  <Link to="/addowner">
                     <button className="btn btn-outline btn-primary  btn-sm">
                       Add
                     </button>
