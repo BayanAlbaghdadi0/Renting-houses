@@ -8,7 +8,9 @@ const ownermodel = mongoose.Schema(
     phone: { type: Number, require: true },
     phone: { type: Number, require: true },
     appartmentId: {
-      type: String,
+      type:String,
+      ref:'appartment',
+      
     },
     role: {
       type: String,
