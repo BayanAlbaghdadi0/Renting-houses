@@ -10,7 +10,6 @@ const ownermodel = mongoose.Schema(
     appartmentId: {
       type:String,
       ref:'appartment',
-      
     },
     role: {
       type: String,
