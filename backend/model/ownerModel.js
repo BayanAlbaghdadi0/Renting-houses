@@ -6,7 +6,7 @@ const ownermodel = mongoose.Schema(
     username: { type: String, require: true },
     password: { type: String, require: true },
     phone: { type: Number, require: true },
-    phone: { type: Number, require: true },
+  
     appartmentId: {
       type:String,
       ref:'appartment',
