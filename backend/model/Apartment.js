@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const apartmentModel =  mongoose.Schema(
   {
    
- apartmentprice: {type:String,
+ apartmentprice: {type:Number,
     require: true,
  },
  apartmentdescription: {type:String,
@@ -19,10 +19,10 @@ const apartmentModel =  mongoose.Schema(
  appartmentarea: {type:String,
    require: true,
 },
-clientId:{
-   type:Number,
-   ref:'client',
-}
+// clientId:{
+//    type:Number,
+//    ref:'client',
+// }
 
   },{
    timestamps:true
@@ -30,4 +30,4 @@ clientId:{
 
 );
 const appartment = mongoose.model("appartment", apartmentModel);
-module.exports = {appartment};
+module.exports = appartment;
