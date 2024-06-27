@@ -3,7 +3,7 @@ import Header from '../../components/Nav'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
 import Filter from '../../components/Filter'
-import CardList from '../../components/Card'
+import SliderCards from '../../components/SliderCards'
 
 
 function Home() {
@@ -30,7 +30,7 @@ function Home() {
         </div>
       </div>
       <Filter />
-      <CardList />
+      <SliderCards/>
       <Footer />
     </div>
   )

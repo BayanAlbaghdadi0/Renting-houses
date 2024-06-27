@@ -9,7 +9,7 @@ import { FaDollarSign } from 'react-icons/fa';
 
 const Filter = () => {
   return (
-    <div className="bg-inherit rounded-lg p-2 flex gap-2">
+    <div className="bg-inherit rounded-lg mt-4 flex gap-2">
       <div className="lg:tooltip bg-[#232530] rounded-lg p-4 flex flex-col items-center justify-center w-1/4" data-tip="City">
         <button ><FaMapMarker size={24} color="#fff" /></button>
       </div>
