@@ -8,7 +8,7 @@ export const AddHome = () => {
         tabIndex={0}
         className="bg-primary text-primary-content focus:bg-secondary focus:text-secondary-content collapse mt-4 m-auto w-2/3"
       >
-        <div className="collapse-title">Thou art blessed</div>
+        <div className="collapse-title">There is little left</div>
         <div className="collapse-content">
           <p>
             Fill in the home details and the process will be completed successfully
@@ -18,7 +18,6 @@ export const AddHome = () => {
       <form className="space-y-4 flex flex-col items-center justify-center mt-4 w-full">
         <div className="">
           <div className="form-control w-full ">
-            <label className="label">Image</label>
             <input type="file" className="file-input file-input-bordered" />
           </div>
           <div className="form-control w-full">
