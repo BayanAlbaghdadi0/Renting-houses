@@ -19,10 +19,10 @@ const apartmentModel =  mongoose.Schema(
  appartmentarea: {type:String,
    require: true,
 },
-// clientId:{
-//    type:Number,
-//    ref:'client',
-// }
+ownerid:{
+   type:mongoose.Schema.Types.ObjectId,
+   ref:'Owner',
+}
 
   },{
    timestamps:true
@@ -31,3 +31,4 @@ const apartmentModel =  mongoose.Schema(
 );
 const appartment = mongoose.model("appartment", apartmentModel);
 module.exports = appartment;
+

@@ -30,31 +30,29 @@ const createApartment = async (req, res) => {
     
     const {
       apartmentprice,
-    apartmentdescription,
-    appartmentLocation,
-    img,
-    appartmentarea,
-    clientId
-    }=req.body
+      apartmentdescription,
+      appartmentLocation,
+      img,
+      appartmentarea,
+      clientId
+    } = req.body;
     console.log(req.body); 
-    const newApartment=await new  Apartment({
-      apartmentprice:req.bod.apartmentprice,
-      apartmentdescription:req.body.apartmentdescription,
+    const newApartment = new Apartment({
+      apartmentprice: req.body.apartmentprice,
+      apartmentdescription: req.body.apartmentdescription,
       appartmentLocation: req.body.appartmentLocation,
-      img:req.body.img,
+      img: req.body.img,
       appartmentarea: req.body.appartmentarea,
-      clientId:req.body.clientId,
-    })
+      clientId: req.body.clientId,
+    });
     console.log(newApartment);
-    newApartment.save()
-
+    await newApartment.save();
 
     res.status(201).json(newApartment);
   } catch (error) {
     res.status(500).json({ error: 'Failed to create apartments' });
   }
 };
-
 const getAllApartments = async (req, res) => {
   try {
     const apartments = await Apartment.find();

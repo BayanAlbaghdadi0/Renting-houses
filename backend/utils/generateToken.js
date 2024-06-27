@@ -10,6 +10,7 @@ const generateTokenAndSetCookie = (userId, res) => {
 		sameSite: "Strict", // CSRF attacks cross-site request forgery attacks
 		secure: process.env.NODE_ENV !== "development",
 	});
+	next()
 };
 
 module.exports = {generateTokenAndSetCookie};
