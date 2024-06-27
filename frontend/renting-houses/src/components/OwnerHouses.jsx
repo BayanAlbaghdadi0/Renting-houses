@@ -1,5 +1,6 @@
 import React from "react";
 import { MdDeleteOutline } from "react-icons/md";
+import { Link } from "react-router-dom";
 const data = [
   {
     id: 1,
@@ -48,8 +49,8 @@ export const OwnerHouses = () => {
           <tr>
             <th></th>
             <th>Name</th>
-            <th className="hidden md:block lg:block" >Job</th>
-            <th >Favorite Color</th>
+            <th className="hidden md:block lg:block">Job</th>
+            <th>Delete</th>
             <th></th>
           </tr>
         </thead>
@@ -57,24 +58,7 @@ export const OwnerHouses = () => {
           {/* rows */}
           {data.map((row) => (
             <tr key={row.id}>
-              <th>
-                <button className="btn btn-circle btn-outline hover:text-red-600">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </th>
+              <th></th>
               <td>
                 <div className="flex items-center gap-3">
                   <div className="avatar">
@@ -93,18 +77,41 @@ export const OwnerHouses = () => {
                 <br />
                 <span className="badge badge-ghost badge-sm">{row.job}</span>
               </td>
-              <td className="">{row.color}</td>
+              <th className="">
+                {" "}
+                <button className="btn btn-circle btn-outline btn-sm hover:text-red-600">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </th>
               <th className="flex gap-2 ">
-                <button className="btn btn-ghost btn-xs hidden md:block lg:block ">details</button>
-                <button className="btn btn-outline btn-warning btn-xs ">Edit</button>
+                <button className="btn btn-ghost btn-xs hidden md:block lg:block ">
+                  details
+                </button>
+                <Link to ="/edit">
+                <button className="btn btn-outline btn-warning btn-xs ">
+                  Edit
+                </button>
+                </Link>
               </th>
             </tr>
           ))}
         </tbody>
         {/* foot */}
         <tfoot>
-          <tr>
-          </tr>
+          <tr></tr>
         </tfoot>
       </table>
     </div>

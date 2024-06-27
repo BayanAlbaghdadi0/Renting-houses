@@ -5,6 +5,7 @@ import { Dashboard } from "./pages/dashboard/Dashboard";
 import { AddOwner } from "./pages/addowner/AddOwner";
 import Home from "./pages/home/Home";
 import { AddHome } from "./pages/addHome/AddHome";
+import { Edit } from "./pages/edit/Edit";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
     <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
     <Route path="/addowner" element={<AddOwner></AddOwner>}></Route>
     <Route path="/addhome" element={<AddHome/>}></Route>
+    <Route path="/edit" element={<Edit/>}></Route>
    </Routes>
     </>
     
