@@ -61,7 +61,7 @@ export const Edit = () => {
               placeholder="Bio"
             ></textarea>
           </div>
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col justify-between gap-4">
             <div className="form-control  ">
               <input type="file" className="file-input file-input-bordered" />
             </div>
@@ -70,6 +70,7 @@ export const Edit = () => {
                 Success
               </button>
             </Link>
+            <button className="btn btn-outline btn-sm ">back</button>
           </div>
         </div>
       </form>
