@@ -1,8 +1,12 @@
-import bcrypt from "bcryptjs";
-import User from "../models/user.model.js";
-import generateTokenAndSetCookie from "../utils/generateToken.js";
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
-export const signup = async (req, res) => {
+// import bcrypt from "bcryptjs";
+// import User from "../model/clientModel.js";
+// import generateTokenAndSetCookie from "../utils/generateToken.js";
+const User = require("../model/clientModel.js");
+const generateTokenAndSetCookie=require("../utils/generateToken.js");
+async function register (req, res) {
 	try {
 		const {username, password,address,phone} = req.body;
 
@@ -47,3 +51,4 @@ export const signup = async (req, res) => {
 		res.status(500).json({ error: "Internal Server Error" });
 	}
 };
+module.exports={register}

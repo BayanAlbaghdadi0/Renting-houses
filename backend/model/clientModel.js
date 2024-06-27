@@ -6,7 +6,7 @@ const clientmodel = mongoose.Schema(
 
     username: { type: String, require: true },
     password: { type: String, require: true },
-    address: { type: string, require: true },
+    address: { type: String, require: true },
     phone: { type: Number, require: true },
   },
   {
@@ -14,4 +14,4 @@ const clientmodel = mongoose.Schema(
   }
 );
 const client = mongoose.model("client", clientmodel);
-module.exports = { client };
+module.exports = client ;
