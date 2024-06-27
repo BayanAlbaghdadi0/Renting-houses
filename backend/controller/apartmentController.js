@@ -1,5 +1,8 @@
-const Apartment = require('../models/apartmentModel');
+const Apartment = require('../model/apartmentModel');
 
+const wellcome=(req,res)=>{
+ console.log("test")
+}
 
 const createApartment = async (req, res) => {
   try {
@@ -71,4 +74,5 @@ module.exports = {
   getApartmentById,
   updateApartmentById,
   deleteApartmentById,
+  wellcome,
 };
