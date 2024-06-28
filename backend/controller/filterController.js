@@ -30,4 +30,4 @@ const filteredApartmentsasarea=async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   };
-  module.exports={filteredApartmentsasarea,filteraslocation}
+  module.exports={filteredApartmentsasarea,filteraslocation,sortasprice,}

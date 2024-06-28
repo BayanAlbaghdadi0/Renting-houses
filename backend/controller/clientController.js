@@ -8,7 +8,6 @@ async function getAllClients(req, res) {
     }
   }
   
-  // Get a single client by ID
   async function getClientById(req, res) {
     try {
       const client = await Client.findById(req.params.id);
@@ -21,7 +20,6 @@ async function getAllClients(req, res) {
     }
   }
   
-  // Create a new client
   async function createClient(req, res) {
     const client = new Client(req.body);
     try {
@@ -32,7 +30,6 @@ async function getAllClients(req, res) {
     }
   }
   
-  // Update a client by ID
   async function updateClient(req, res) {
     try {
       const client = await Client.findByIdAndUpdate(req.params.id, req.body, {
@@ -47,7 +44,6 @@ async function getAllClients(req, res) {
     }
   }
   
-  // Delete a client by ID
   async function deleteClient(req, res) {
     try {
       const client = await Client.findByIdAndDelete(req.params.id);
