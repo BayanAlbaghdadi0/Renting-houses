@@ -11,6 +11,7 @@ const generateTokenAndSetCookie = (userId, res) => {
 		secure: process.env.NODE_ENV !== "development",
 	});
 	next()
+// return res.redirect("/login");
 };
 
 module.exports = {generateTokenAndSetCookie};

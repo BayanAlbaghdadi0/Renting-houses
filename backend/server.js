@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const appatmentrouter= require('./route/appartmentRoute')
 const loginrouter=require('./route/authRouter')
+const filterrouter=require('./route/filterRoute')
 
 const app = express();
 require('dotenv').config();
@@ -14,6 +15,7 @@ const connectionDataBase = require('./db/connectDb');
 
 app.use('/apartment',appatmentrouter)
 app.use('/auth',loginrouter)
+app.use('/filter',filterrouter)
 
 connectionDataBase(MONGO_URL)
 app.listen(port, () => {
