@@ -8,6 +8,7 @@ import { FaMapMarker } from 'react-icons/fa';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from 'react-router-dom'
 
 
 const data = [
@@ -78,7 +79,7 @@ const data = [
         <div className="mt-4">
         <Slider {...settings}>
           {data.map((d) => (
-            <div key={d.name} className="bg-[#414558] h-[350px] text-black rounded-xl p-3">
+            <div key={d.name} className="bg-[#232530] h-[350px] text-black rounded-xl p-3">
               <div className=' flex justify-center items-center rounded-t-xl'>
                 <img src={d.image} alt="" className=" rounded-xl h-44"/>
               </div>
@@ -105,9 +106,11 @@ const data = [
               <FaRuler size={20} color="#fff" />
               {d.area}
             </div>
+              <Link to ="/detail">
             <button className="btn btn-outline btn-info py-0 px-5 mx-2 h-0 min-h-6">
               detail
             </button>
+              </Link>
           </div>
         </div>
             </div>
