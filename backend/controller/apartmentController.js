@@ -14,7 +14,7 @@ const createApartment = async (req, res) => {
       "appartmentLocation": "New York",
       "img": ["image1.jpg", "image2.jpg"],
       "appartmentarea": "1000 sq ft",
-      "clientId": 1234
+      "ownerid": 1234
     },
     {
       "apartmentprice": "3500",
@@ -22,7 +22,7 @@ const createApartment = async (req, res) => {
       "appartmentLocation": "San Francisco",
       "img": ["image3.jpg", "image4.jpg"],
       "appartmentarea": "800 sq ft",
-      "clientId": 5678
+      "ownerid": 5678
     }
   ];
   
@@ -34,7 +34,7 @@ const createApartment = async (req, res) => {
       appartmentLocation,
       img,
       appartmentarea,
-      clientId
+      ownerid
     } = req.body;
     console.log(req.body); 
     const newApartment = new Apartment({
@@ -43,7 +43,7 @@ const createApartment = async (req, res) => {
       appartmentLocation: req.body.appartmentLocation,
       img: req.body.img,
       appartmentarea: req.body.appartmentarea,
-      clientId: req.body.clientId,
+      ownerid: req.body.ownerid,
     });
     console.log(newApartment);
     await newApartment.save();
