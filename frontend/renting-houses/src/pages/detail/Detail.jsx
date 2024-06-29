@@ -12,38 +12,37 @@ import { Link } from 'react-router-dom';
 
 
 const Detail = () => {
-
     return (
             <div className="container pt-4 gap-10 mx-auto flex flex-col md:flex-row">
                 <div className=" md:w-1/2 ">
                     <h2 className="text-2xl font-bold mb-2 text-[#8be9fd]">Detail</h2>
                     <div className="w-3/5 h-64 bg-gradient-to-r from-green-400 to-purple-600 rounded-2xl transition duration-300 hover:shadow-lg hover:shadow-[#8be9fd]/30">
                         <div className=" h-64 bg-[#232530] rounded transition duration-200 hover:scale-98 hover:rounded-2xl p-3 w-full">
-                            <div className=' flex items-center'>
+                            <div className=' flex h-8 items-center w-full'>
                                 <FaHome size={20} color="#fff" />
                                 <p className="text-white pl-1">type: Apartment</p>
                             </div>
-                            <div className='h-10 flex items-center  w-full'>
+                            <div className='h-8 flex items-center  w-full'>
                                 <FaMapMarker size={20} color="#fff" />
                                 <p className="text-white pl-1">Location: Damascus/Maza</p>
                             </div>
-                            <div className=' items-center w-full flex'>
+                            <div className='h-8 items-center w-full flex'>
                                 <FaRuler size={20} color="#fff" />
                                 <p className="text-white pl-1">Area: 200 m^2</p>
                             </div >
-                            <div className='h-10 flex items-center w-full'>
+                            <div className='h-8 flex items-center w-full'>
                                 <FaBuilding size={20} color="#fff" />
                                 <p className="text-white pl-1">Floor: 2th</p>
                             </div>
-                            <div className='h-10 flex items-center w-full'>
+                            <div className='h-8 flex items-center w-full'>
                                 <FaCompass size={20} color="#fff" />
                                 <p className="text-white pl-1">Direction: East</p>
                             </div>
-                            <div className='h-10 flex items-center w-full'>
+                            <div className='h-8 flex items-center w-full'>
                                 <FaBed size={20} color="#fff" />
                                 <p className="text-white pl-1">rooms: 3</p>
                             </div>
-                            <div className='items-center  w-2/3 flex'>
+                            <div className='h-8 items-center w-full flex'>
                                 <FaDollarSign size={20} color="#fff" />
                                 <p className="text-white">price: 900 000</p>
                             </div>
@@ -70,7 +69,7 @@ const Detail = () => {
                         </button>
                     </Link>
                 </div>
-                <div className="carousel w-[800px] ml-400 pt-10 pb-40">
+                <div className="carousel w-[800px] ml-400 pt-8 pb-40">
                     <div id="slide1" className="carousel-item relative w-full">
                         <img
                             src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"

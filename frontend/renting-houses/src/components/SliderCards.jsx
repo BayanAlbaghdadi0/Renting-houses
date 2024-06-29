@@ -72,7 +72,6 @@ function SliderCards() {
     <div className="w-[95%] m-auto">
       <div>
         <div className="mt-4">
-<<<<<<< HEAD
         <Slider {...settings}>
           {data.map((d) => (
             <div key={d.name} className="bg-[#232530] h-[350px] text-black rounded-xl p-3">
@@ -112,48 +111,6 @@ function SliderCards() {
             </div>
           ))}
         </Slider>
-=======
-          <Slider {...settings}>
-            {data.map((d) => (
-              <div
-                key={d.name}
-                className="bg-[#414558] h-[350px] text-black rounded-xl p-3"
-              >
-                <div className=" flex justify-center items-center rounded-t-xl">
-                  <img src={d.image} alt="" className=" rounded-xl h-44" />
-                </div>
-
-                <div className="text-white pt-3">
-                  <h2 className="text-lg mb-2 flex gap-2">
-                    <FaHome size={20} color="#fff" />
-                    {d.title}
-                  </h2>
-                  <p className="text-sm mb-2 flex gap-2">
-                    <FaDollarSign size={20} color="#fff" />
-                    {d.price}
-                  </p>
-                  <p className="text-sm mb-4 flex gap-2">
-                    <FaMapMarker size={20} color="#fff" />
-                    {d.location}
-                  </p>
-                  <div className="flex justify-between">
-                    <div className="text-white px-2 rounded flex gap-2">
-                      <FaBed size={20} color="#fff" />
-                      {d.beds}
-                    </div>
-                    <div className="text-white px-4 rounded flex ">
-                      <FaRuler size={20} color="#fff" />
-                      {d.area}
-                    </div>
-                    <button className="btn btn-outline btn-info btn-sm">
-                      detail
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </Slider>
->>>>>>> 2d3fdbf290a4caa32684706b61fcd864e191793f
         </div>
       </div>
     </div>
