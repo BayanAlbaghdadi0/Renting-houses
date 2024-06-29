@@ -1,18 +1,58 @@
-const Apartment = require('../model/apartmentModel');
+const Apartment = require('../model/Apartment');
 
 const wellcome=(req,res)=>{
  console.log("test")
+ res.send("hi")
 }
 
 const createApartment = async (req, res) => {
+
+  const apartmentData = [
+    {
+      "apartmentprice": "5000",
+      "apartmentdescription": "Spacious apartment with a great view",
+      "appartmentLocation": "New York",
+      "img": ["image1.jpg", "image2.jpg"],
+      "appartmentarea": "1000 sq ft",
+      "clientId": 1234
+    },
+    {
+      "apartmentprice": "3500",
+      "apartmentdescription": "Cozy apartment in the heart of the city",
+      "appartmentLocation": "San Francisco",
+      "img": ["image3.jpg", "image4.jpg"],
+      "appartmentarea": "800 sq ft",
+      "clientId": 5678
+    }
+  ];
+  
   try {
-    const newApartment = await Apartment.create(req.body);
+    
+    const {
+      apartmentprice,
+      apartmentdescription,
+      appartmentLocation,
+      img,
+      appartmentarea,
+      clientId
+    } = req.body;
+    console.log(req.body); 
+    const newApartment = new Apartment({
+      apartmentprice: req.body.apartmentprice,
+      apartmentdescription: req.body.apartmentdescription,
+      appartmentLocation: req.body.appartmentLocation,
+      img: req.body.img,
+      appartmentarea: req.body.appartmentarea,
+      clientId: req.body.clientId,
+    });
+    console.log(newApartment);
+    await newApartment.save();
+
     res.status(201).json(newApartment);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to create apartment' });
+    res.status(500).json({ error: 'Failed to create apartments' });
   }
 };
-
 const getAllApartments = async (req, res) => {
   try {
     const apartments = await Apartment.find();
