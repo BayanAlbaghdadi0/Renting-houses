@@ -22,7 +22,7 @@ async function login()  {
       return res.status(401).json({ message: 'Invalid password' });
     }
   
-    generateTokenAndSetCookie(newUser._id, res)
+    generateTokenAndSetCookie(username, res)
   
     res.json({ token });
   };
