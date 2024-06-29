@@ -1,7 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import houseImage from "../../../assets/matt-mutlu-unsplash.jpg";
+import { useAuth } from "../../../hooks/useAuth";
+import  useSignup  from "../../../hooks/useSignUp";
 export const Signup = () => {
+//   const [inputs, setInputs] = useState({
+//     userName: "",
+//     password: "",
+//     email: "",
+//     phone: "",
+//   });
+  // const {loading,signup} = useSignup()
   return (
     <div className="flex  h-screen">
       <div className="hidden md:flex w-1/2 h-5/6 m-auto">
