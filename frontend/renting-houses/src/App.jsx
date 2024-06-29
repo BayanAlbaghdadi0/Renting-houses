@@ -6,7 +6,7 @@ import { AddOwner } from "./pages/addowner/AddOwner";
 import Home from "./pages/home/Home";
 import { AddHome } from "./pages/addHome/AddHome";
 import { Edit } from "./pages/edit/Edit";
-
+import { Ownerdetails } from "./pages/ownerdetails/Ownerdetails";
 function App() {
   return (
     <>
@@ -18,6 +18,7 @@ function App() {
     <Route path="/addowner" element={<AddOwner></AddOwner>}></Route>
     <Route path="/addhome" element={<AddHome/>}></Route>
     <Route path="/edit" element={<Edit/>}></Route>
+    <Route path="/ownerdetails" element={<Ownerdetails/>}/>
    </Routes>
     </>
     

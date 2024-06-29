@@ -97,9 +97,11 @@ export const OwnerHouses = () => {
                 </button>
               </th>
               <th className="flex gap-2 ">
+                <Link to="/ownerdetails">
                 <button className="btn btn-ghost btn-xs hidden md:block lg:block ">
                   details
                 </button>
+                </Link>
                 <Link to ="/edit">
                 <button className="btn btn-outline btn-warning btn-xs ">
                   Edit
