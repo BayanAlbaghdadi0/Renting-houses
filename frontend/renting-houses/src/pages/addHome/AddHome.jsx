@@ -1,6 +1,8 @@
 import React from "react";
 import { PiMapPinAreaFill } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import { BsBuildingsFill } from "react-icons/bs";
+import { MdBedroomParent } from "react-icons/md";
 export const AddHome = () => {
   return (
     <div>
@@ -43,11 +45,21 @@ export const AddHome = () => {
         <div className="flex flex-col gap-4 ">
           <label className="input input-bordered flex items-center gap-2">
             Salary
-            <input type="" className="grow" placeholder="$" />
+            <input type="number" className="grow" placeholder="$" />
           </label>
           <label className="input input-bordered flex items-center gap-2">
             <PiMapPinAreaFill />
-            <input type="" className="grow" placeholder="Area" />
+            <input type="number" className="grow" placeholder="Area" />
+          </label>
+        </div>
+        <div className="flex gap-4 ">
+          <label className="input input-bordered flex items-center gap-2">
+           <MdBedroomParent/>
+            <input type="number" className="grow" placeholder="5" />
+          </label>
+          <label className="input input-bordered flex items-center gap-2">
+          <BsBuildingsFill />
+            <input type="number" className="grow" placeholder="flor hight" />
           </label>
         </div>
 
