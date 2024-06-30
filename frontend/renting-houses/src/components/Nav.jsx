@@ -1,8 +1,9 @@
-
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 const Header = () => {
+  const { user } = useAuth();
   return (
+<<<<<<< HEAD
     <div className="navbar bg-base-100 mx-auto px-10">
       <div className="navbar-start">
         <div className="dropdown z-50">
@@ -68,14 +69,61 @@ const Header = () => {
       <div className="navbar-end hidden lg:flex">
         <div className="flex items-center gap-2 ">
           <Link className="hover:text-blue-500 text-white font-extrabold" to="/login">
+=======
+    <header className=" shadow-md py-4">
+      <div className="container mx-auto flex items-center justify-between">
+        <div className="flex items-center">
+          <img
+            src="https://placehold.co/200x200"
+            alt="Logo"
+            className="h-10 w-10 mr-4"
+          />
+          <h1 className="font-bold text-lg text-white">Your Company</h1>
+        </div>
+        <nav className="space-x-6 text-white">
+          <Link
+            className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4"
+            to="/"
+          >
+            HOME
+          </Link>
+          <Link
+            className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4"
+            to="/about"
+          >
+            ABOUT US
+          </Link>
+          <Link
+            className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4"
+            to="/contact"
+          >
+            CONTACT
+          </Link>
+        </nav>
+        <div className="flex items-center gap-2 ">
+          <Link
+            className="hover:text-blue-500 text-white font-extrabold"
+            to="/login"
+          >
+>>>>>>> cbddda08abbef4ea7bda4b2be9462f16a44d6613
             <button className="btn btn-outline btn-sm">login</button>
           </Link>
           <Link to="/signup">
             <button className="btn btn-outline btn-info btn-sm">Signup</button>
+<<<<<<< HEAD
           </Link>
           <Link to="/dashboard">
             <button className="btn btn-outline btn-secondary btn-sm">Dashboard</button>
+=======
+>>>>>>> cbddda08abbef4ea7bda4b2be9462f16a44d6613
           </Link>
+          {user && user.role === "admin" && (
+            <Link to="/dashboard">
+              <button className="btn btn-outline btn-secondary btn-sm">
+                Dashboard
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

@@ -1,7 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import houseImage from "../../../assets/matt-mutlu-unsplash.jpg";
+import { useSignup } from "../../../hooks/useSignup";
 export const Signup = () => {
+  const [inputs, setInputs] = useState({
+    username: "",
+    password: "",
+    email: "",
+    phone: "",
+  });
+  const { loading, signup } = useSignup();
+
+  const handelSupmit = async (e) => {
+    e.preventDefault();
+    await signup(inputs);
+  };
   return (
     <div className="flex  h-screen">
       <div className="hidden md:flex w-1/2 h-5/6 m-auto">
@@ -12,7 +26,7 @@ export const Signup = () => {
         />
       </div>
       <div className="flex justify-center items-center w-full md:w-1/2">
-        <form className="w-full max-w-md p-4 flex flex-col gap-4">
+        <form onSubmit={handelSupmit} className="w-full max-w-md p-4 flex flex-col gap-4">
           <h1 className="text-2xl font-extrabold [text-shadow:1px_1px_5px_#3333ff]">
             Signup
           </h1>
@@ -29,18 +43,27 @@ export const Signup = () => {
               type="text"
               className="w-full shadow-lg shadow-slate-800"
               placeholder="Username"
+              onChange={(e) =>
+                setInputs({ ...inputs, username: e.target.value })
+              }
             />
           </label>
           <label className="input input-bordered flex items-center gap-2">
             <input
-              type="text"
+              type="email"
               className="w-full shadow-lg shadow-slate-800"
               placeholder="Email"
+              onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
             />
           </label>
           <label className="input input-bordered flex items-center gap-2">
             Phone Number
-            <input type="text" className="grow" placeholder="09" />
+            <input
+              type="text"
+              className="grow"
+              placeholder="09"
+              onChange={(e) => setInputs({ ...inputs, phone: e.target.value })}
+            />
           </label>
           <label className="input input-bordered flex items-center gap-2">
             <svg
@@ -59,9 +82,23 @@ export const Signup = () => {
               type="password"
               className="grow w-full shadow-lg shadow-slate-800"
               placeholder="Password"
+              onChange={(e) =>
+                setInputs({ ...inputs, password: e.target.value })
+              }
             />
           </label>
-          <button className="btn btn-outline btn-info">Signup</button>
+          <button
+            type="submit"
+            disabled={loading}
+            className="btn btn-outline btn-info"
+          >
+            {" "}
+            {loading ? (
+              <span className="loading loading-spinner"></span>
+            ) : (
+              "Signup"
+            )}
+          </button>
 
           <p className="text-lg text-center font-medium  mt-4 hover:[text-shadow:1px_1px_5px_#3333ff]">
             If you have an account you can Login 🌌
