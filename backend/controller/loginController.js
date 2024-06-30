@@ -8,16 +8,16 @@ function test(req,res) {
   console.log(process.env.MY_SECRET);
 }
 async function login(req, res) {
+ 
   const { username, password } = req.body;
 console.log(req.body);
 const user = await Client.findOne({ username });
-
+console.log(user);
 if (!user) {
   return res.status(404).json({ message: "User not found" });
 }
 
-console.log(user.password);
-console.log(password);
+
 
 const passwordMatch = await bcrypt.compare(password, user.password);
 
@@ -35,6 +35,12 @@ res.cookie("token", token, {
   secure: true,
 });
 
-res.json({ token });
+return res.status(201).json({
+  _id: user._id,
+  username: user.username,
+  email: user.email,
+  phone: user.phone,
+  role:user.role,
+});
 }
 module.exports = { login, test };

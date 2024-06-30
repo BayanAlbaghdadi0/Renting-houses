@@ -1,13 +1,15 @@
 import toast from "react-hot-toast";
 import { useAuth } from "./useAuth";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export const useLogin = () => {
   const [loading, setLoggedIn] = useState(false);
   const { setUser } = useAuth();
 
   const login = async ({ username, password }) => {
-    const seccus = handelInputError({
+    const navigate = useNavigate();
+    const success = handelInputError({
       username,
       password,
     });
@@ -37,6 +39,7 @@ export const useLogin = () => {
       toast.error(error.message);
     } finally {
       setLoggedIn(false);
+      navigate('/')
     }
   };
   return { loading, login };

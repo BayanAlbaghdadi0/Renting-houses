@@ -1,11 +1,13 @@
 import toast from "react-hot-toast";
 import {useAuth} from "./useAuth";
 import { useState } from "react";
-
+import {useNavigate} from "react-router-dom";
 
 export const useSignup = () => {
   const [loading, setLoggedIn] = useState(false);
   const { setUser } = useAuth();
+  const navigate = useNavigate();
+  // username, email, password, phone
   const signup = async ({ username, email, password, phone }) => {
     const success = handelInputError({
       username,
@@ -18,7 +20,7 @@ export const useSignup = () => {
     }
     setLoggedIn(true);
     try {
-      const res = await fetch(`/auth/register`, {
+      const res = await fetch(`http://localhost:5000/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -39,6 +41,7 @@ export const useSignup = () => {
       toast.error(error.message);
     } finally {
       setLoggedIn(false);
+      navigate('/')
     }
   };
   return {loading ,signup}
