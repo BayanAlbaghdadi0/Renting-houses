@@ -6,7 +6,7 @@ const wellcome = (req, res) => {
 };
 
 const createApartment = async (req, res) => {
- 
+
 
   try {
     const {
@@ -15,11 +15,11 @@ const createApartment = async (req, res) => {
       appartmentLocation,
       img,
       appartmentarea,
-      ownerid,
       countRoom,
+      ownerid,
       FloorHight
     } = req.body;
-    console.log(req.body);
+   
     const newApartment = new Apartment({
       apartmentprice: req.body.apartmentprice,
       apartmentdescription: req.body.apartmentdescription,
@@ -38,18 +38,9 @@ const createApartment = async (req, res) => {
     res.status(500).json({ error: "Failed to create apartments" });
   }
 };
-//res:
-// {
-//   "_id": "668136a358b3bd92577a803d",
-//   "apartmentprice": 100000,
-//   "apartmentdescription": "fucking apartment",
-//   "appartmentLocation": "in the city ",
-//   "img": [],
-//   "ownerid": "668135eb716ea53e9e501131",
-//   "createdAt": "2024-06-30T10:42:43.654Z",
-//   "updatedAt": "2024-06-30T10:42:43.654Z",
-//   "__v": 0
-// }
+// "668080a4574f82a6c3363d3e"
+
+
 const getAllApartments = async (req, res) => {
   try {
     const apartments = await Apartment.find();
