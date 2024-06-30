@@ -1,11 +1,11 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require("../model/clientModel.js");
-const generateTokenAndSetCookie = require("../utils/generateToken.js");
+const { generateTokenAndSetCookie } = require("../utils/generateToken.js");
 
 async function register(req, res) {
   try {
-    const { username, password, address, phone, confirmPassword } = req.body;
+    const { username, email, password, address, phone, confirmPassword } = req.body;
 
     if (password !== confirmPassword) {
       return res.status(400).json({ error: "Passwords don't match" });
@@ -23,6 +23,7 @@ async function register(req, res) {
 
     const newUser = new User({
       username,
+      email, // Add the email field
       password: hashedPassword,
       address,
       phone,
@@ -36,6 +37,7 @@ async function register(req, res) {
       res.status(201).json({
         _id: newUser._id,
         username: newUser.username,
+        email: newUser.email,
         address: newUser.address,
         phone: newUser.phone,
       });

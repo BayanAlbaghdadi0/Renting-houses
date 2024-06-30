@@ -6,7 +6,7 @@ const path = require('path');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '/images'));
+    cb(null, path.join(__dirname, './images'));
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
@@ -17,7 +17,7 @@ const upload = multer({ storage });
 const saveFiles = upload.array('pictures', 5); 
 
 router.get('/welcome', apartmentController.wellcome);
-router.post('/', apartmentController.createApartment);
+router.post('/createApartment', saveFiles, apartmentController.createApartment);
 router.get('/', apartmentController.getAllApartments);
 router.get('/:id', apartmentController.getApartmentById);
 router.put('/:id', apartmentController.updateApartmentById);
