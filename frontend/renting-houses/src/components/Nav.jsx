@@ -3,7 +3,6 @@ import { useAuth } from "../hooks/useAuth";
 const Header = () => {
   const { user } = useAuth();
   return (
-<<<<<<< HEAD
     <div className="navbar bg-base-100 mx-auto px-10">
       <div className="navbar-start">
         <div className="dropdown z-50">
@@ -69,8 +68,7 @@ const Header = () => {
       <div className="navbar-end hidden lg:flex">
         <div className="flex items-center gap-2 ">
           <Link className="hover:text-blue-500 text-white font-extrabold" to="/login">
-=======
-    <header className=" shadow-md py-4">
+    {/* <header className=" shadow-md py-4">
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <img
@@ -104,18 +102,14 @@ const Header = () => {
           <Link
             className="hover:text-blue-500 text-white font-extrabold"
             to="/login"
-          >
->>>>>>> cbddda08abbef4ea7bda4b2be9462f16a44d6613
+          > */}
             <button className="btn btn-outline btn-sm">login</button>
           </Link>
           <Link to="/signup">
             <button className="btn btn-outline btn-info btn-sm">Signup</button>
-<<<<<<< HEAD
           </Link>
           <Link to="/dashboard">
             <button className="btn btn-outline btn-secondary btn-sm">Dashboard</button>
-=======
->>>>>>> cbddda08abbef4ea7bda4b2be9462f16a44d6613
           </Link>
           {user && user.role === "admin" && (
             <Link to="/dashboard">

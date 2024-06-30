@@ -9,7 +9,6 @@ function Home() {
   return (
     <div>
       <Header />
-<<<<<<< HEAD
       <div id="home" className="relative  overflow-hidden">
         <div className='mb-16'>
           <div className="max-w-7xl mx-auto">
@@ -32,7 +31,6 @@ function Home() {
                 </div>
               </main>
             </div>
-=======
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
@@ -40,7 +38,6 @@ function Home() {
             src="./image/hero.png"
             alt="photo"
           />
-
           <div>
             <h1 className="text-5xl font-bold">find your perfect rental </h1>
             <p className="py-6 text-xl">
@@ -56,7 +53,6 @@ function Home() {
                 Get Start
               </button>
             </Link>
->>>>>>> cbddda08abbef4ea7bda4b2be9462f16a44d6613
           </div>
           <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 pt-20">
             <img className="h-56 w-full object-cover object-top sm:h-72 md:h-96 lg:w-[90%]" src="./image/hero.png" alt="" />
@@ -64,41 +60,14 @@ function Home() {
 
         </div>
       </div>
+      </div>
+    </div>
+    </div>
 
 
       <Filter />
       <SliderCards />
-<<<<<<< HEAD
-=======
 
-      <div className="py-20 px-4 max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold mb-4 text-slate-800">
-          About Sahand Estate
-        </h1>
-        <p className="mb-4 text-slate-700">
-          Sahand Estate is a leading real estate agency that specializes in
-          helping clients buy, sell, and rent properties in the most desirable
-          neighborhoods. Our team of experienced agents is dedicated to
-          providing exceptional service and making the buying and selling
-          process as smooth as possible.
-        </p>
-        <p className="mb-4 text-slate-700">
-          Our mission is to help our clients achieve their real estate goals by
-          providing expert advice, personalized service, and a deep
-          understanding of the local market. Whether you are looking to buy,
-          sell, or rent a property, we are here to help you every step of the
-          way.
-        </p>
-        <p className="mb-4 text-slate-700">
-          Our team of agents has a wealth of experience and knowledge in the
-          real estate industry, and we are committed to providing the highest
-          level of service to our clients. We believe that buying or selling a
-          property should be an exciting and rewarding experience, and we are
-          dedicated to making that a reality for each and every one of our
-          clients.
-        </p>
-      </div>
->>>>>>> cbddda08abbef4ea7bda4b2be9462f16a44d6613
       <Footer />
     </div>
   );

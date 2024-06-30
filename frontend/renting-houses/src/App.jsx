@@ -1,5 +1,5 @@
 //liprary
-import { Toaster } from "react-hot-toast";
+// import { Toaster } from "react-hot-toast";
 import { Routes, Route } from "react-router-dom";
 //components
 import { Signup } from "./pages/auth/signup/Signup";

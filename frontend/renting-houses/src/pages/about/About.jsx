@@ -3,7 +3,6 @@ import Header from "../../components/Nav";
 import Footer from "../../components/Footer";
 
 function About() {
-<<<<<<< HEAD
     return (
         <>
             <Header />
@@ -143,7 +142,7 @@ function About() {
                             </div>
                         </div>
                     </section>
-=======
+{/* =======
   return (
     <>
       <Header />
@@ -312,13 +311,12 @@ function About() {
                 </p>
               </div>
             </div>
-          </section>
+          </section> */}
         </div>
       </div>
       <Footer />
     </>
   );
->>>>>>> cbddda08abbef4ea7bda4b2be9462f16a44d6613
 }
 
 export default About;
