@@ -1,5 +1,6 @@
-import jwt from "jsonwebtoken";
-import User from "../models/user.model.js";
+
+const User = require("../model/clientModel.js");
+const jwt = require('jsonwebtoken');
 
 const protectRoute = async (req, res, next) => {
 	try {
@@ -29,5 +30,4 @@ const protectRoute = async (req, res, next) => {
 		res.status(500).json({ error: "Internal server error" });
 	}
 };
-
-export default protectRoute;
+module.exports={protectRoute}
