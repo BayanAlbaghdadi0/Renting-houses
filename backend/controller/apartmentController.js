@@ -83,6 +83,17 @@ const getAllApartments = async (req, res) => {
 //   "createdAt": "2024-06-30T10:42:43.654Z",
 //   "updatedAt": "2024-06-30T10:42:43.654Z",
 //   "__v": 0
+// },
+// {
+//   "_id": "66111111358b3bd92577a803d",
+//   "apartmentprice": 100000,
+//   "apartmentdescription": "jkl apartment",
+//   "appartmentLocation": "kjhgfghjkcity ",
+//   "img": [],
+//   "ownerid": "668135eb716ea53e9e501131",
+//   "createdAt": "2024-06-30T10:42:43.654Z",
+//   "updatedAt": "2024-06-30T10:42:43.654Z",
+//   "__v": 0
 // }
 
 const getApartmentById = async (req, res) => {
