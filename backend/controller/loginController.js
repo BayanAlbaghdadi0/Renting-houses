@@ -37,6 +37,6 @@ res.cookie("token", token, {
   secure: true,
 });
 
-res.json({ token });
+res.json(user);
 }
 module.exports = { login, test };

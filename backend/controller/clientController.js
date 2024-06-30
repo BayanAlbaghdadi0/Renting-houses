@@ -2,43 +2,15 @@ const Client=require('../model/clientModel')
 const bcrypt = require('bcrypt');
 
 
-// const clientsData = [
-//   {
-    // "email": "client1@example.com",
-    // "username": "client1",
-    // "password": "password1",
-    // "address": "Address 1",
-    // "phone": 1234567890,
-//   },
-//   {
-    // email: "client2@example.com",
-    // username: "client2",
-    // password: "password2",
-    // address: "Address 2",
-    // phone: 2345678901,
-//   },
-//   {
-//     email: "client3@example.com",
-//     username: "client3",
-//     password: "password3",
-//     address: "Address 3",
-//     phone: 3456789012,
-//   },
-//   {
-//     email: "client4@example.com",
-//     username: "client4",
-//     password: "password4",
-//     address: "Address 4",
-//     phone: 4567890123,
-//   },
-//   {
-    // email: "client5@example.com",
-    // username: "client5",
-    // password: "password5",
-    // address: "Address 5",
-    // phone: 5678901234,
-//   },
-// ];
+// {
+//   "email": "example@example.com",
+//   "username": "example_user",
+//   "password": "example_password",
+//   "phone": 1234567890,
+//   "role": "admin"
+// }
+
+
 const  test=(req,res)=>{
   console.log("test");
   res.send("test")
@@ -65,21 +37,12 @@ async function getAllClients(req, res) {
     }
   }
   
-  // async function createClient(req, res) {
-  //   console.log("hibro")
-  //   const client = new Client(req.body);
-  //   try {
-  //     const newClient = await client.save();
-  //     res.status(201).json(newClient);
-  //   } catch (error) {
-  //     res.status(400).json({ message: error.message });
-  //   }
-  // }
+ 
   
 
 async function createClient(req, res) {
   try {
-    const { email, username, password, address, phone } = req.body;
+    const { email, username, password, address, phone,role } = req.body;
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -88,8 +51,9 @@ async function createClient(req, res) {
       username,
       password: hashedPassword,
       address,
-      phone
-    });
+      phone,
+      role
+    }); 
 
     const savedClient = await newClient.save();
 
