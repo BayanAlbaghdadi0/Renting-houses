@@ -16,8 +16,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 const saveFiles = upload.array('pictures', 5); 
 
-router.get('/welcome', apartmentController.welcome);
-router.post('/', saveFiles, apartmentController.createApartment);
+router.get('/welcome', apartmentController.wellcome);
+router.post('/', apartmentController.createApartment);
 router.get('/', apartmentController.getAllApartments);
 router.get('/:id', apartmentController.getApartmentById);
 router.put('/:id', apartmentController.updateApartmentById);
