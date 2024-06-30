@@ -1,14 +1,11 @@
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-
-// import bcrypt from "bcryptjs";
-// import User from "../model/clientModel.js";
-// import generateTokenAndSetCookie from "../utils/generateToken.js";
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const User = require("../model/clientModel.js");
 const generateTokenAndSetCookie = require("../utils/generateToken.js");
+
 async function register(req, res) {
   try {
-    const { username, password, address, phone } = req.body;
+    const { username, password, address, phone, confirmPassword } = req.body;
 
     if (password !== confirmPassword) {
       return res.status(400).json({ error: "Passwords don't match" });
@@ -39,7 +36,6 @@ async function register(req, res) {
       res.status(201).json({
         _id: newUser._id,
         username: newUser.username,
-        password: newUser.password,
         address: newUser.address,
         phone: newUser.phone,
       });
@@ -51,4 +47,5 @@ async function register(req, res) {
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
+
 module.exports = { register };
