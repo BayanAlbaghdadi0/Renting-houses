@@ -2,8 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import houseImage from "../../../assets/matt-mutlu-unsplash.jpg";
+<<<<<<< HEAD
 import { useSignup } from "../../../hooks/useSignUp.jsx";
 
+=======
+<<<<<<< HEAD
+import { useSignup } from "../../../hooks/useSignUp.jsx";
+=======
+import { useSignup } from "../../../hooks/useSignUp.js";
+>>>>>>> 7ff7d1004c660e461925e68c5f0212f43df9e0b5
+>>>>>>> 563a3b447c9fa552ce8a058c1a849038889dbcd9
 export const Signup = () => {
   const [inputs, setInputs] = useState({
     username: "",
