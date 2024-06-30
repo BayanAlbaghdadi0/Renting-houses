@@ -65,6 +65,10 @@ function Home() {
           clients.
         </p>
       </div>
+
+      <Filter />
+      <SliderCards />
+
       <Footer />
     </div>
   );
