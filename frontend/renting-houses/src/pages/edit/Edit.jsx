@@ -6,7 +6,7 @@ export const Edit = () => {
   return (
     <div className="mt-10 flex w-full  align-center ">
       <form className=" flex gap-5 justify-around flex-wrap   ">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 w-1/3">
           <label className="input input-bordered flex items-center gap-2">
             Name
             <input type="text" className="grow " placeholder="bayan" />
@@ -65,12 +65,16 @@ export const Edit = () => {
             <div className="form-control  ">
               <input type="file" className="file-input file-input-bordered" />
             </div>
-            <Link className="h-12 block  " to="/">
-              <button className="btn btn-outline btn-success  w-full ">
-                Success
-              </button>
-            </Link>
-            <button className="btn btn-outline btn-sm ">back</button>
+            <div className="flex gap-1   ">
+              <Link className="h-12 block w-2/3 " to="/">
+                <button className="btn btn-outline btn-success w-full  ">
+                  Success
+                </button>
+              </Link>
+              <Link className="block w-1/3 " to="/dashboard">
+                <button className="btn btn-outline w-full ">back</button>
+              </Link>
+            </div>
           </div>
         </div>
       </form>

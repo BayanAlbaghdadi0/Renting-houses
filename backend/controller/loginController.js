@@ -1,12 +1,20 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const client= require('../model/clientModel');
-const generateTokenAndSetCookie=require('../utils/generateToken')
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const client = require("../model/clientModel");
+const generateTokenAndSetCookie = require("../utils/generateToken");
 
+function test() {
+  console.log("test");
+}
+async function login() {
+  const { username, password } = req.body;
 
-  function test(){
-    console.log("test")
+  const user = client.find((user) => user.username === username);
+
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
   }
+<<<<<<< HEAD
 async function login()  {
   console.log("test login");
     const { username, password } = req.body;
@@ -35,5 +43,18 @@ async function login()  {
   
     res.json({ token });
   };
+=======
+>>>>>>> 3736d87af631cde9c74b326ac2e4feb3b9fb67e9
 
-  module.exports={login,test}
+  const passwordMatch = await bcrypt.compare(password, user.password);
+
+  if (!passwordMatch) {
+    return res.status(401).json({ message: "Invalid password" });
+  }
+
+  generateTokenAndSetCookie(username, res);
+
+  res.json({ token });
+}
+
+module.exports = { login, test };
