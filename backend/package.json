@@ -11,12 +11,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-<<<<<<< HEAD
     "bcrypt": "^5.1.1",
-=======
-
-    
->>>>>>> bf41ea9cbc742246b4c1bb93d41b4aade66951cf
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
