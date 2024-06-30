@@ -23,9 +23,8 @@ async function register(req, res) {
 
     const newUser = new User({
       username,
-      email, // Add the email field
+      email,
       password: hashedPassword,
-      address,
       phone,
     });
 
@@ -38,7 +37,6 @@ async function register(req, res) {
         _id: newUser._id,
         username: newUser.username,
         email: newUser.email,
-        address: newUser.address,
         phone: newUser.phone,
       });
     } else {
