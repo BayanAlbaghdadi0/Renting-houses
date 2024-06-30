@@ -6,24 +6,7 @@ const wellcome = (req, res) => {
 };
 
 const createApartment = async (req, res) => {
-  const apartmentData = [
-    {
-      apartmentprice: "5000",
-      apartmentdescription: "Spacious apartment with a great view",
-      appartmentLocation: "New York",
-      img: ["image1.jpg", "image2.jpg"],
-      appartmentarea: "1000 sq ft",
-      ownerid: 1234,
-    },
-    {
-      apartmentprice: "3500",
-      apartmentdescription: "Cozy apartment in the heart of the city",
-      appartmentLocation: "San Francisco",
-      img: ["image3.jpg", "image4.jpg"],
-      appartmentarea: "800 sq ft",
-      ownerid: 5678,
-    },
-  ];
+ 
 
   try {
     const {
@@ -33,6 +16,8 @@ const createApartment = async (req, res) => {
       img,
       appartmentarea,
       ownerid,
+      countRoom,
+      FloorHight
     } = req.body;
     console.log(req.body);
     const newApartment = new Apartment({
@@ -41,6 +26,8 @@ const createApartment = async (req, res) => {
       appartmentLocation: req.body.appartmentLocation,
       img: req.body.img,
       appartmentarea: req.body.appartmentarea,
+      countRoom:req.body.countRoom,
+      FloorHight:req.body.FloorHight,
       ownerid: req.body.ownerid,
     });
     console.log(newApartment);
