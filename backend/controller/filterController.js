@@ -30,4 +30,14 @@ const filteredApartmentsasarea=async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   };
-  module.exports={filteredApartmentsasarea,filteraslocation,sortasprice,}
+
+const filterascountroom=(req,res) => {
+  Appartment.find().sort({ countRoom: -1 }).exec((err, apartments) => {
+  if (err) {
+    console.error(err);
+  } else {
+    res.send(apartments);
+  }
+});
+}
+  module.exports={filteredApartmentsasarea,filteraslocation,sortasprice,filterascountroom}
