@@ -14,7 +14,7 @@ const createApartment = async (req, res) => {
       "appartmentLocation": "New York",
       "img": ["image1.jpg", "image2.jpg"],
       "appartmentarea": "1000 sq ft",
-      "clientId": 1234
+      "ownerid": 1234
     },
     {
       "apartmentprice": "3500",
@@ -22,7 +22,7 @@ const createApartment = async (req, res) => {
       "appartmentLocation": "San Francisco",
       "img": ["image3.jpg", "image4.jpg"],
       "appartmentarea": "800 sq ft",
-      "clientId": 5678
+      "ownerid": 5678
     }
   ];
   
@@ -30,31 +30,29 @@ const createApartment = async (req, res) => {
     
     const {
       apartmentprice,
-    apartmentdescription,
-    appartmentLocation,
-    img,
-    appartmentarea,
-    clientId
-    }=req.body
+      apartmentdescription,
+      appartmentLocation,
+      img,
+      appartmentarea,
+      ownerid
+    } = req.body;
     console.log(req.body); 
-    const newApartment=await new  Apartment({
-      apartmentprice:req.bod.apartmentprice,
-      apartmentdescription:req.body.apartmentdescription,
+    const newApartment = new Apartment({
+      apartmentprice: req.body.apartmentprice,
+      apartmentdescription: req.body.apartmentdescription,
       appartmentLocation: req.body.appartmentLocation,
-      img:req.body.img,
+      img: req.body.img,
       appartmentarea: req.body.appartmentarea,
-      clientId:req.body.clientId,
-    })
+      ownerid: req.body.ownerid,
+    });
     console.log(newApartment);
-    newApartment.save()
-
+    await newApartment.save();
 
     res.status(201).json(newApartment);
   } catch (error) {
     res.status(500).json({ error: 'Failed to create apartments' });
   }
 };
-
 const getAllApartments = async (req, res) => {
   try {
     const apartments = await Apartment.find();
