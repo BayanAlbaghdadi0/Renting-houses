@@ -9,9 +9,12 @@ const ownerrouter=require('./route/ownerRoute')
 
 const app = express();
 require('dotenv').config();
+const secret=process.env.MY_SECRET
+const port =process.env.PORT||5000
 
-const port =process.env.PORT||3000
 const MONGO_URL = process.env.MONGO_URL
+
+
 app.use(express.json());
 const connectionDataBase = require('./db/connectDb');
 
