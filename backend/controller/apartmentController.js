@@ -51,6 +51,18 @@ const createApartment = async (req, res) => {
     res.status(500).json({ error: "Failed to create apartments" });
   }
 };
+//res:
+// {
+//   "_id": "668136a358b3bd92577a803d",
+//   "apartmentprice": 100000,
+//   "apartmentdescription": "fucking apartment",
+//   "appartmentLocation": "in the city ",
+//   "img": [],
+//   "ownerid": "668135eb716ea53e9e501131",
+//   "createdAt": "2024-06-30T10:42:43.654Z",
+//   "updatedAt": "2024-06-30T10:42:43.654Z",
+//   "__v": 0
+// }
 const getAllApartments = async (req, res) => {
   try {
     const apartments = await Apartment.find();
@@ -59,6 +71,19 @@ const getAllApartments = async (req, res) => {
     res.status(500).json({ error: "Failed to get apartments" });
   }
 };
+
+//res:
+// {
+//   "_id": "668136a358b3bd92577a803d",
+//   "apartmentprice": 100000,
+//   "apartmentdescription": "fucking apartment",
+//   "appartmentLocation": "in the city ",
+//   "img": [],
+//   "ownerid": "668135eb716ea53e9e501131",
+//   "createdAt": "2024-06-30T10:42:43.654Z",
+//   "updatedAt": "2024-06-30T10:42:43.654Z",
+//   "__v": 0
+// }
 
 const getApartmentById = async (req, res) => {
   try {
@@ -69,9 +94,21 @@ const getApartmentById = async (req, res) => {
       res.status(404).json({ error: "Apartment not found" });
     }
   } catch (error) {
-    res.status(500).json({ error: "Failed to get apartment" });
+    res.status(500).json({ error: error.message });
   }
 };
+//res:
+// {
+//   "_id": "668136a358b3bd92577a803d",
+//   "apartmentprice": 100000,
+//   "apartmentdescription": "fucking apartment",
+//   "appartmentLocation": "in the city ",
+//   "img": [],
+//   "ownerid": "668135eb716ea53e9e501131",
+//   "createdAt": "2024-06-30T10:42:43.654Z",
+//   "updatedAt": "2024-06-30T10:42:43.654Z",
+//   "__v": 0
+// }
 
 const updateApartmentById = async (req, res) => {
   try {

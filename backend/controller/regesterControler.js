@@ -5,9 +5,9 @@ const { generateTokenAndSetCookie } = require("../utils/generateToken.js");
 
 async function register(req, res) {
   try {
-    const { username, email, password, address, phone, confirmPassword } = req.body;
+    const { username, email, password, phone } = req.body;
 
-    if (password !== confirmPassword) {
+    if (!password ) {
       return res.status(400).json({ error: "Passwords don't match" });
     }
 
@@ -23,9 +23,8 @@ async function register(req, res) {
 
     const newUser = new User({
       username,
-      email, // Add the email field
+      email,
       password: hashedPassword,
-      address,
       phone,
     });
 
@@ -34,11 +33,10 @@ async function register(req, res) {
       generateTokenAndSetCookie(newUser._id, res);
       await newUser.save();
 
-      res.status(201).json({
+     return res.status(201).json({
         _id: newUser._id,
         username: newUser.username,
         email: newUser.email,
-        address: newUser.address,
         phone: newUser.phone,
       });
     } else {
