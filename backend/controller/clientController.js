@@ -1,12 +1,14 @@
 const Client=require('../model/clientModel')
+const bcrypt = require('bcrypt');
+
 
 // const clientsData = [
 //   {
-//     "email": "client1@example.com",
-//     "username": "client1",
-//     "password": "password1",
-//     "address": "Address 1",
-//     "phone": 1234567890,
+    // "email": "client1@example.com",
+    // "username": "client1",
+    // "password": "password1",
+    // "address": "Address 1",
+    // "phone": 1234567890,
 //   },
 //   {
 //     email: "client2@example.com",
@@ -30,11 +32,11 @@ const Client=require('../model/clientModel')
 //     phone: 4567890123,
 //   },
 //   {
-//     email: "client5@example.com",
-//     username: "client5",
-//     password: "password5",
-//     address: "Address 5",
-//     phone: 5678901234,
+    // email: "client5@example.com",
+    // username: "client5",
+    // password: "password5",
+    // address: "Address 5",
+    // phone: 5678901234,
 //   },
 // ];
 const  test=(req,res)=>{
@@ -63,17 +65,43 @@ async function getAllClients(req, res) {
     }
   }
   
-  async function createClient(req, res) {
-    console.log("hibro")
-    const client = new Client(req.body);
-    try {
-      const newClient = await client.save();
-      res.status(201).json(newClient);
-    } catch (error) {
-      res.status(400).json({ message: error.message });
-    }
-  }
+  // async function createClient(req, res) {
+  //   console.log("hibro")
+  //   const client = new Client(req.body);
+  //   try {
+  //     const newClient = await client.save();
+  //     res.status(201).json(newClient);
+  //   } catch (error) {
+  //     res.status(400).json({ message: error.message });
+  //   }
+  // }
   
+
+async function createClient(req, res) {
+  try {
+    const { email, username, password, address, phone } = req.body;
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newClient = new Client({
+      email,
+      username,
+      password: hashedPassword,
+      address,
+      phone
+    });
+
+    const savedClient = await newClient.save();
+
+    res.status(201).json(savedClient);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+}
+
+
+
+
   async function updateClient(req, res) {
     try {
       const client = await Client.findByIdAndUpdate(req.params.id, req.body, {
