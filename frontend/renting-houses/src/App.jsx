@@ -1,4 +1,7 @@
+//liprary
+import { Toaster } from "react-hot-toast";
 import { Routes, Route } from "react-router-dom";
+//components
 import { Signup } from "./pages/auth/signup/Signup";
 import { Login } from "./pages/auth/login/Login";
 import { Dashboard } from "./pages/dashboard/Dashboard";
@@ -8,11 +11,10 @@ import { AddHome } from "./pages/addHome/AddHome";
 import Detail from "./pages/detail/Detail";
 import { Edit } from "./pages/edit/Edit";
 import About from "./pages/about/About";
-import { AuthProvider } from "./contexts/AuthContext";
-import { Toaster } from "react-hot-toast";
-
-
 import { Ownerdetails } from "./pages/ownerdetails/Ownerdetails";
+//hook -> SM
+import { AuthProvider } from "./contexts/AuthContext";
+
 function App() {
   return (
     <>

@@ -1,31 +1,27 @@
 import toast from "react-hot-toast";
-import {useAuth} from "./useAuth";
+import { useAuth } from "./useAuth";
 import { useState } from "react";
 
-
-export const useSignup = () => {
+export const useLogin = () => {
   const [loading, setLoggedIn] = useState(false);
   const { setUser } = useAuth();
-  const signup = async ({ username, email, password, phone }) => {
-    const success = handelInputError({
+
+  const login = async ({ username, password }) => {
+    const seccus = handelInputError({
       username,
-      email,
       password,
-      phone,
     });
     if (!success) {
       return;
     }
     setLoggedIn(true);
     try {
-      const res = await fetch(`/auth/register`, {
+      await fetch("/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           username,
-          email,
           password,
-          phone,
         }),
       });
       const data = await res.json();
@@ -41,10 +37,11 @@ export const useSignup = () => {
       setLoggedIn(false);
     }
   };
-  return {loading ,signup}
+  return { loading, login };
 };
-function handelInputError({ username, password, email, phone }) {
-  if (!email || !username || !password || !phone) {
+
+function handelInputError({ username, password }) {
+  if (!username || !password) {
     toast.error("Please fill in all fields");
     return false;
   }

@@ -2,12 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import houseImage from "../../../assets/matt-mutlu-unsplash.jpg";
 import { useState } from "react";
+import { useLogin } from "../../../hooks/useLogin";
 
 export const Login = () => {
-  const [user, setUser] = useState({
+  const [inputs, setInputs] = useState({
     username: "",
     password: "",
   });
+  const { loading, login } = useLogin();
+  const handelSupmit = async (e) => {
+    e.preventDefault();
+    await login(inputs);
+  };
   return (
     <div className="flex h-screen">
       <div className="hidden md:flex w-1/2 h-5/6 m-auto">
@@ -18,7 +24,10 @@ export const Login = () => {
         />
       </div>
       <div className="flex justify-center items-center w-full md:w-1/2">
-        <form className="w-full max-w-md p-4 flex flex-col gap-4">
+        <form
+          onSubmit={handelSupmit}
+          className="w-full max-w-md p-4 flex flex-col gap-4"
+        >
           <h1 className="text-2xl font-extrabold [text-shadow:1px_1px_5px_#3333ff]">
             Login
           </h1>
@@ -35,7 +44,9 @@ export const Login = () => {
               type="text"
               className="w-full shadow-lg shadow-slate-800"
               placeholder="Username"
-              onChange={(e) => setUser({ ...user, username: e.target.value })}
+              onChange={(e) =>
+                setInputs({ ...inputs, username: e.target.value })
+              }
             />
           </label>
 
@@ -56,7 +67,9 @@ export const Login = () => {
               type="password"
               className="grow w-full shadow-lg shadow-slate-800"
               placeholder="Password"
-              onChange={(e) => setUser({ ...user, password: e.target.value })}
+              onChange={(e) =>
+                setInputs({ ...inputs, password: e.target.value })
+              }
             />
           </label>
           <button className="btn btn-outline btn-info">Login</button>
@@ -66,10 +79,16 @@ export const Login = () => {
           <div className="flex justify-between w-full gap-1">
             <Link className=" w-1/2 m-auto" to="/signup">
               <button
-                onClick={console.log(user)}
+                type="submit"
+                disabled={loading}
                 className="w-full btn btn-outline mt-3"
               >
-                Signup
+                {" "}
+                {loading ? (
+                  <span className="loading loading-spinner"></span>
+                ) : (
+                  "Login"
+                )}
               </button>
             </Link>
             <Link className=" w-1/2 m-auto" to="/">
