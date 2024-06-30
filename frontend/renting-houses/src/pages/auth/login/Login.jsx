@@ -87,7 +87,7 @@ export const Login = () => {
                 {loading ? (
                   <span className="loading loading-spinner"></span>
                 ) : (
-                  "Login"
+                  "signup"
                 )}
               </button>
             </Link>
