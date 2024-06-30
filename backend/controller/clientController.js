@@ -11,11 +11,11 @@ const bcrypt = require('bcrypt');
     // "phone": 1234567890,
 //   },
 //   {
-//     email: "client2@example.com",
-//     username: "client2",
-//     password: "password2",
-//     address: "Address 2",
-//     phone: 2345678901,
+    // email: "client2@example.com",
+    // username: "client2",
+    // password: "password2",
+    // address: "Address 2",
+    // phone: 2345678901,
 //   },
 //   {
 //     email: "client3@example.com",

@@ -8,6 +8,7 @@ function test(req,res) {
   console.log(process.env.MY_SECRET);
 }
 async function login(req, res) {
+  console.log(bcrypt);
   const { username, password } = req.body;
 console.log(req.body);
 const user = await Client.findOne({ username });
@@ -16,11 +17,12 @@ if (!user) {
   return res.status(404).json({ message: "User not found" });
 }
 
-console.log(user.password);
-console.log(password);
+
 
 const passwordMatch = await bcrypt.compare(password, user.password);
-
+console.log(user.password);
+console.log(password);
+console.log(passwordMatch);
 if (!passwordMatch) {
   return res.status(401).json({ message: "Invalid password" });
 }

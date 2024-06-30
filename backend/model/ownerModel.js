@@ -11,10 +11,7 @@ const ownermodel = mongoose.Schema(
       type:String,
       ref:'appartment',
     },
-    role: {
-      type: String,
-      default: "user",
-    },
+
   },
   {
     timestamps: true,
