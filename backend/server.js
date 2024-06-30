@@ -1,5 +1,5 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const appatmentrouter= require('./route/appartmentRoute')
 const loginrouter=require('./route/authRouter')
@@ -40,5 +40,5 @@ app.use('/owner',ownerrouter)
 
 connectionDataBase(MONGO_URL)
 app.listen(port, () => {
-  console.log(`Server is running on port `);
+  console.log(`Server is running on port ${port}`);
 });
