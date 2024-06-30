@@ -30,6 +30,8 @@ export const useLogin = () => {
       }
       console.log(data);
       localStorage.setItem("user", JSON.stringify(data));
+      
+      localStorage.setItem("role", data.role);
       setUser(data);
     } catch (error) {
       toast.error(error.message);
