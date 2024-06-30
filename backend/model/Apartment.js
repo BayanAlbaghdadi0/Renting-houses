@@ -23,10 +23,7 @@ ownerid:{
    type:mongoose.Schema.Types.ObjectId,
    ref:'Owner',
 },
-role: {
-   type: String,
-   default: "user",
- },
+
 
   },{
    timestamps:true
