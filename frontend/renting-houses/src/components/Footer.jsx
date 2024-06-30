@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 function Footer(){
     return (
         <footer className="footer text-base-content rounded p-10 flex flex-col items-center">
-        <nav className="space-x-6 text-white flex">
+        <nav className="space-x-6 text-white flex text-xs">
           <Link className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4" to="/">
             HOME
           </Link>
@@ -49,7 +49,7 @@ function Footer(){
             </a>
           </div>
        
-        <aside className="text-center text-white">
+        <aside className="text-center text-white/50">
           <p>Copyright © ${new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
         </aside>
   </footer>

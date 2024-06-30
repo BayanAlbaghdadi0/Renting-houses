@@ -7,7 +7,7 @@ function About() {
         <>
             <Header />
             <div id="about" className="relative  overflow-hidden">
-                <div className='mt- mb-16'>
+                <div className='mb-16'>
                     <div className="max-w-7xl mx-auto">
                         <div className="relative z-10 pb-8 bg-[#282a36] sm:pb-16 md:pb-20 lg:max-w-[32rem] lg:w-full lg:pb-28 xl:pb-32">
                             <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
@@ -36,7 +36,7 @@ function About() {
                                 className="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl"
                             >
 
-                                Rent the home you love                        </h2>
+                                Rent the home you love</h2>
                             <p className="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">
                                 We strive to provide an exceptional experience for our clients by offering a wide range of options and around-the-clock support.
                             </p>
@@ -144,7 +144,7 @@ function About() {
                     </section>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 }
