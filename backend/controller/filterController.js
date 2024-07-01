@@ -41,3 +41,4 @@ const filterascountroom=(req,res) => {
 });
 }
   module.exports={filteredApartmentsasarea,filteraslocation,sortasprice,filterascountroom}
+  
