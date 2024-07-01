@@ -1,6 +1,7 @@
 import React from "react";
 import { GrLinkNext } from "react-icons/gr";
 import { Link } from "react-router-dom";
+
 export const AddOwner = () => {
   return (
     <div className="mt-10">
@@ -30,12 +31,12 @@ export const AddOwner = () => {
           className="file-input file-input-bordered file-input-success w-full "
         />
         <Link to="/addhome">
-        <button className="btn btn-outline btn-success flex items-center w-1/2 m-auto font-bold p-2 ">
-          next <GrLinkNext />
-        </button>
+          <button className="btn btn-outline btn-success flex items-center w-1/2 m-auto font-bold p-2 ">
+            next <GrLinkNext />
+          </button>
         </Link>
-
       </form>
+      
     </div>
   );
 };
