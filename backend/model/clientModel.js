@@ -7,6 +7,10 @@ const clientmodel = mongoose.Schema(
     username: { type: String, require: true },
     password: { type: String, require: true },
     phone: { type: Number, require: true },
+    role: {
+      type: String,
+      default: "user",
+    },
   },
   {
     timestamps: true,
