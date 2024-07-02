@@ -23,9 +23,9 @@ export const AddHome = () => {
           </label>
           <input
             type="file"
-            className="file-input file-input-bordered file-input-success w-full "
+            className="file-input file-input-bordered file-input-success  "
           />
-          <div className="flex gap-2 ">
+          <div className="flex gap-2 w-full m-auto h-full ">
             <label className="input input-bordered flex items-center gap-2">
               <MdBedroomParent />
               <input type="number" className="grow" placeholder="5" />
