@@ -1,68 +1,3 @@
-<<<<<<< HEAD
-import React, { useState, useContext } from 'react';
-
-const FormContext = React.createContext();
-
-function MyComponent() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  // ... الحالات الأخرى
-
-  const handleSubmit = () => {
-    // قم بتخزين الحالات في الـ context
-    // يمكنك إنشاء كائن يحتوي على جميع البيانات وتخزينه في الـ context
-    const formData = {
-      name,
-      email,
-      phoneNumber,
-      // ... البيانات الأخرى
-    };
-    // قم بتخزين البيانات في context
-    // يمكنك استخدام setState من useContext لتحديث حالة الـ context
-  };
-
-  return (
-    <FormContext.Provider value={{ name, email, phoneNumber }}>
-      <form className="mt-4 m-auto flex flex-col gap-6 w-1/2">
-        <label className="input input-bordered flex items-center gap-2">
-          Name
-          <input
-            type="text"
-            className="grow"
-            placeholder="bayan"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </label>
-        <label className="input input-bordered flex items-center gap-2">
-          Email
-          <input
-            type="text"
-            className="grow"
-            placeholder="email@.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <label className="input input-bordered flex items-center gap-2">
-          Phone Number
-          <input
-            type="text"
-            className="grow"
-            placeholder="09"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          />
-        </label>
-        {/* إضافة المزيد من الحقول هنا */}
-        <button
-          onClick={handleSubmit}
-          className="btn btn-outline btn-success flex items-center w-1/2 m-auto font-bold p-2"
-        >
-          next
-        </button>
-=======
 import React from "react";
 import { Link } from "react-router-dom";
 import { PiMapPinAreaFill } from "react-icons/pi";
@@ -72,7 +7,7 @@ export const AddOwner = () => {
   return (
     <div className="mt-10 flex w-full  align-center ">
         
-      <form className=" flex gap-5 justify-around flex-wrap w-full  ">
+      <form className=" flex gap-5 justify-around flex-wrap   ">
         <div className="flex flex-col gap-4 w-1/3">
           <label className="input input-bordered flex items-center gap-2">
             Name
@@ -80,7 +15,7 @@ export const AddOwner = () => {
           </label>
           <label className="input input-bordered flex items-center gap-2">
             Email
-            <input type="text" className="grow" placeholder="email@" />
+            <input type="text" className="grow" placeholder="email@.com" />
           </label>
           <label className="input input-bordered flex items-center gap-2">
             Phone Number
@@ -90,7 +25,7 @@ export const AddOwner = () => {
             type="file"
             className="file-input file-input-bordered file-input-success w-full "
           />
-          <div className="flex gap-2 flex-col w-full ">
+          <div className="flex gap-2 ">
             <label className="input input-bordered flex items-center gap-2">
               <MdBedroomParent />
               <input type="number" className="grow" placeholder="5" />
@@ -102,7 +37,7 @@ export const AddOwner = () => {
           </div>
         </div>
 
-        <div className=" flex flex-wrap gap-4 justify-evenly  ">
+        <div className=" flex flex-wrap gap-4 justify-evenly ">
           <div className="form-control  w-full">
             <label className="label">Select city</label>
             <select className="select select-secondary">
@@ -122,7 +57,7 @@ export const AddOwner = () => {
             </select>
           </div>
           <div className="flex flex-col gap-4 ">
-            <label className="input input-bordered flex items-center  gap-2">
+            <label className="input input-bordered flex items-center gap-2">
               Salary
               <input type="" className="grow" placeholder="$" />
             </label>
@@ -154,12 +89,7 @@ export const AddOwner = () => {
             </div>
           </div>
         </div>
->>>>>>> 5f38a567ce4ffe2be86ae3ddad7792126166ccc6
       </form>
-    </FormContext.Provider>
+    </div>
   );
-<<<<<<< HEAD
-}
-=======
 };
->>>>>>> 5f38a567ce4ffe2be86ae3ddad7792126166ccc6
