@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { PiMapPinAreaFill } from "react-icons/pi";
-
+import { BsBuildingsFill } from "react-icons/bs";
+import { MdBedroomParent } from "react-icons/md";
 export const Edit = () => {
   return (
     <div className="mt-10 flex w-full  align-center ">
+        
       <form className=" flex gap-5 justify-around flex-wrap   ">
         <div className="flex flex-col gap-4 w-1/3">
           <label className="input input-bordered flex items-center gap-2">
@@ -23,6 +25,16 @@ export const Edit = () => {
             type="file"
             className="file-input file-input-bordered file-input-success w-full "
           />
+          <div className="flex gap-2 ">
+            <label className="input input-bordered flex items-center gap-2">
+              <MdBedroomParent />
+              <input type="number" className="grow" placeholder="5" />
+            </label>
+            <label className="input input-bordered flex items-center gap-2">
+              <BsBuildingsFill />
+              <input type="number" className="grow" placeholder="flor hight" />
+            </label>
+          </div>
         </div>
 
         <div className=" flex flex-wrap gap-4 justify-evenly ">

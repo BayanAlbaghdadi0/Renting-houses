@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
+import { CiLogout } from "react-icons/ci";
 export const Sidebar = () => {
+  const { loading, logout } = useLogout();
+
   return (
     // <div className="drawer drawer-mobile">
     <div>
@@ -49,11 +53,18 @@ export const Sidebar = () => {
                   </Link>
                 </li>
                 <li>
-                  <a>
+                  <Link>
                     <button className="btn btn-outline btn-error  btn-sm">
-                      Logout
+                      {!loading ? (
+                        <CiLogout
+                          onClick={logout}
+                          className="w-6 h-6 text-white cursor-pointer"
+                        />
+                      ) : (
+                        <span className="loading loading-spinner"></span>
+                      )}
                     </button>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -82,17 +93,25 @@ export const Sidebar = () => {
                 </button>
               </Link>
             </li>
-            <li>
-              <a>
-                {" "}
-                <button className="btn btn-outline btn-error  btn-sm">
-                  Logout
-                </button>
-              </a>
-            </li>
             <li className="">
               <Link to="/">
-                <button className="btn  btn-outline btn-primary btn-sm ml-1">Add</button>
+                <button className="btn  btn-outline btn-primary btn-sm ml-1">
+                  Add
+                </button>
+              </Link>
+            </li>
+            <li>
+              <Link>
+                <button className="btn btn-outline btn-error  ">
+                  {!loading ? (
+                    <CiLogout
+                      onClick={logout}
+                      className="w-6 h-6 text-white cursor-pointer"
+                    />
+                  ) : (
+                    <span className="loading loading-spinner"></span>
+                  )}
+                </button>
               </Link>
             </li>
           </ul>

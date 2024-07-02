@@ -9,33 +9,65 @@ import { FaBuilding } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Detail = () => {
+  const { apartmentId } = useParams();
+
+  const findApartmentById = async (apartmentId) => {
+    try {
+      const response = await fetch(
+        `/apartment/getApartmentById/${apartmentId}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch apartment");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching apartment:", error);
+      return null;
+    }
+  };
+  const apartment = findApartmentById(apartmentId); //
+
+  if (!apartment) {
+    return <div>Apartment not found</div>;
+  }
+  const {
+    apartmentprice,
+    apartmentdescription,
+    appartmentLocation,
+    img,
+    appartmentarea,
+    countRoom,
+    FloorHight,
+  } = apartment;
   return (
     <div className="container pt-4 gap-10 mx-auto flex flex-col md:flex-row">
       <div className=" md:w-1/2 ">
         <h2 className="text-2xl font-bold mb-2 text-[#8be9fd]">Detail</h2>
         <div className="w-3/5 h-64 bg-gradient-to-r from-green-400 to-purple-600 rounded-2xl transition duration-300 hover:shadow-lg hover:shadow-[#8be9fd]/30">
           <div className=" h-64 bg-[#232530] rounded transition duration-200 hover:scale-98 hover:rounded-2xl p-3 w-full">
-            <div className=" flex h-8 items-center w-full">
+            <div className="flex h-8 items-center w-full">
               <FaHome size={20} color="#fff" />
-              <p className="text-white pl-1">type: Apartment</p>
+              <p className="text-white pl-1">countRoom: {countRoom}</p>
             </div>
-            <div className="h-8 flex items-center  w-full">
+            <div className="h-8 flex items-center w-full">
               <FaMapMarker size={20} color="#fff" />
-              <p className="text-white pl-1">Location: Damascus/Maza</p>
+              <p className="text-white pl-1">Location: {appartmentLocation}</p>
             </div>
             <div className="h-8 items-center w-full flex">
               <FaRuler size={20} color="#fff" />
-              <p className="text-white pl-1">Area: 200 m^2</p>
+              <p className="text-white pl-1">Area: {appartmentarea}</p>
             </div>
             <div className="h-8 flex items-center w-full">
               <FaBuilding size={20} color="#fff" />
-              <p className="text-white pl-1">Floor: 2th</p>
+              <p className="text-white pl-1">Floor: {FloorHight}th</p>
             </div>
             <div className="h-8 flex items-center w-full">
               <FaCompass size={20} color="#fff" />
-              <p className="text-white pl-1">Direction: East</p>
+              <p className="text-white pl-1">Direction: {apartmentdescription}</p>
             </div>
             <div className="h-8 flex items-center w-full">
               <FaBed size={20} color="#fff" />
@@ -43,7 +75,7 @@ const Detail = () => {
             </div>
             <div className="h-8 items-center w-full flex">
               <FaDollarSign size={20} color="#fff" />
-              <p className="text-white">price: 900 000</p>
+              <p className="text-white">price: {apartmentprice}</p>
             </div>
           </div>
         </div>
@@ -60,11 +92,11 @@ const Detail = () => {
           <h3 className="mb-2 text-[#8be9fd]">contact us</h3>
           <div className="flex pb-2">
             <FaPhone size={18} color="#fff" />
-            <p className="text-gray-400 pl-2">+963 00000</p>
+            <p className="text-gray-400 pl-2">+963 093737993</p>
           </div>
           <div className="flex">
             <FaEnvelope size={18} color="#fff" />
-            <p className="text-gray-400 pl-2">hello@gmail.com</p>
+            <p className="text-gray-400 pl-2">bayan@gmail.com</p>
           </div>
         </div>
         <Link to="/">
