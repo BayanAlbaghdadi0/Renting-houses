@@ -14,11 +14,13 @@ import About from "./pages/about/About";
 import { Ownerdetails } from "./pages/ownerdetails/Ownerdetails";
 //hook -> SM
 import { AuthProvider } from "./contexts/AuthContext";
+import { FormProvider } from "./FormContext";
 
 function App() {
   return (
     <>
       <AuthProvider>
+      <FormProvider>
         <Routes>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/signup" element={<Signup></Signup>}></Route>
@@ -31,6 +33,7 @@ function App() {
           <Route path="/edit" element={<Edit />}></Route>
           <Route path="/ownerdetails" element={<Ownerdetails />} />
         </Routes>
+        </FormProvider>
         <Toaster />
       </AuthProvider>
     </>
