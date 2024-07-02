@@ -29,7 +29,7 @@ function App() {
             <Route path="/addowner" element={<AddOwner></AddOwner>}></Route>
             <Route path="/addhome" element={<AddHome />}></Route>
             <Route
-              path="/detail/:apartmentId"
+              path="/detail"
               element={<Detail></Detail>}
             ></Route>
             <Route path="/" element={<Home></Home>}></Route>
