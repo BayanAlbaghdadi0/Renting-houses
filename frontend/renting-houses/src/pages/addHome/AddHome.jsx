@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PiMapPinAreaFill } from "react-icons/pi";
 import { BsBuildingsFill } from "react-icons/bs";
 import { MdBedroomParent } from "react-icons/md";
-export const AddOwner = () => {
+export const AddHome = () => {
   return (
     <div className="mt-10 flex w-full  align-center ">
         
