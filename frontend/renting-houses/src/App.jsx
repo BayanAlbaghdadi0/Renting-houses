@@ -14,6 +14,7 @@ import About from "./pages/about/About";
 import { Ownerdetails } from "./pages/ownerdetails/Ownerdetails";
 //hook -> SM
 import { AuthProvider } from "./contexts/AuthContext";
+import { FormProvider } from "./FormContext";
 // import {ApartmentProvider} from "./contexts/ApartmentContext";
 
 function App() {
