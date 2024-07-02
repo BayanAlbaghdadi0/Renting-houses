@@ -1,4 +1,5 @@
 const Appartment=require('../model/Apartment')
+  // function is correct
 
 const filteredApartmentsasarea=async (req, res) => {
     const { area } = req.query;
@@ -10,6 +11,7 @@ const filteredApartmentsasarea=async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   };
+  // function is correct
 
   const filteraslocation=async (req, res) => {
     const { location } = req.query;
@@ -22,6 +24,8 @@ const filteredApartmentsasarea=async (req, res) => {
     }
   };
 
+
+  // function is correct
  const sortasprice= async (req, res) => {
     try {
       const filteredApartments = await Appartment.find().sort({ apartmentprice: 1 });
@@ -30,4 +34,28 @@ const filteredApartmentsasarea=async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   };
-  module.exports={filteredApartmentsasarea,filteraslocation,sortasprice,}
+  // function is correct
+
+  const filterascountroom = (req, res) => {
+    Appartment.find().sort('-countRoom')
+      .then((apartments) => {
+        res.send(apartments);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+      });
+  };
+  // function is correct
+
+  const filterasfloorhight = (req, res) => {
+    Appartment.find().sort('-FloorHight')
+      .then((apartments) => {
+        res.send(apartments);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+      });
+  };
+  module.exports={filteredApartmentsasarea,filteraslocation,sortasprice,filterascountroom,filterasfloorhight}

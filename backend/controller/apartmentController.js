@@ -6,24 +6,7 @@ const wellcome = (req, res) => {
 };
 
 const createApartment = async (req, res) => {
-  const apartmentData = [
-    {
-      apartmentprice: "5000",
-      apartmentdescription: "Spacious apartment with a great view",
-      appartmentLocation: "New York",
-      img: ["image1.jpg", "image2.jpg"],
-      appartmentarea: "1000 sq ft",
-      ownerid: 1234,
-    },
-    {
-      apartmentprice: "3500",
-      apartmentdescription: "Cozy apartment in the heart of the city",
-      appartmentLocation: "San Francisco",
-      img: ["image3.jpg", "image4.jpg"],
-      appartmentarea: "800 sq ft",
-      ownerid: 5678,
-    },
-  ];
+
 
   try {
     const {
@@ -32,15 +15,19 @@ const createApartment = async (req, res) => {
       appartmentLocation,
       img,
       appartmentarea,
+      countRoom,
       ownerid,
+      FloorHight
     } = req.body;
-    console.log(req.body);
+   
     const newApartment = new Apartment({
       apartmentprice: req.body.apartmentprice,
       apartmentdescription: req.body.apartmentdescription,
       appartmentLocation: req.body.appartmentLocation,
       img: req.body.img,
       appartmentarea: req.body.appartmentarea,
+      countRoom:req.body.countRoom,
+      FloorHight:req.body.FloorHight,
       ownerid: req.body.ownerid,
     });
     console.log(newApartment);
@@ -51,6 +38,9 @@ const createApartment = async (req, res) => {
     res.status(500).json({ error: "Failed to create apartments" });
   }
 };
+// "668080a4574f82a6c3363d3e"
+
+
 const getAllApartments = async (req, res) => {
   try {
     const apartments = await Apartment.find();
@@ -59,6 +49,30 @@ const getAllApartments = async (req, res) => {
     res.status(500).json({ error: "Failed to get apartments" });
   }
 };
+
+//res:
+// {
+//   "_id": "668136a358b3bd92577a803d",
+//   "apartmentprice": 100000,
+//   "apartmentdescription": "fucking apartment",
+//   "appartmentLocation": "in the city ",
+//   "img": [],
+//   "ownerid": "668135eb716ea53e9e501131",
+//   "createdAt": "2024-06-30T10:42:43.654Z",
+//   "updatedAt": "2024-06-30T10:42:43.654Z",
+//   "__v": 0
+// },
+// {
+//   "_id": "66111111358b3bd92577a803d",
+//   "apartmentprice": 100000,
+//   "apartmentdescription": "jkl apartment",
+//   "appartmentLocation": "kjhgfghjkcity ",
+//   "img": [],
+//   "ownerid": "668135eb716ea53e9e501131",
+//   "createdAt": "2024-06-30T10:42:43.654Z",
+//   "updatedAt": "2024-06-30T10:42:43.654Z",
+//   "__v": 0
+// }
 
 const getApartmentById = async (req, res) => {
   try {
@@ -69,9 +83,21 @@ const getApartmentById = async (req, res) => {
       res.status(404).json({ error: "Apartment not found" });
     }
   } catch (error) {
-    res.status(500).json({ error: "Failed to get apartment" });
+    res.status(500).json({ error: error.message });
   }
 };
+//res:
+// {
+//   "_id": "668136a358b3bd92577a803d",
+//   "apartmentprice": 100000,
+//   "apartmentdescription": "fucking apartment",
+//   "appartmentLocation": "in the city ",
+//   "img": [],
+//   "ownerid": "668135eb716ea53e9e501131",
+//   "createdAt": "2024-06-30T10:42:43.654Z",
+//   "updatedAt": "2024-06-30T10:42:43.654Z",
+//   "__v": 0
+// }
 
 const updateApartmentById = async (req, res) => {
   try {

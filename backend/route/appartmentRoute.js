@@ -17,10 +17,10 @@ const upload = multer({ storage });
 const saveFiles = upload.array('pictures', 5); 
 
 router.get('/welcome', apartmentController.wellcome);
-router.post('/createApartment', saveFiles, apartmentController.createApartment);
-router.get('/', apartmentController.getAllApartments);
-router.get('/:id', apartmentController.getApartmentById);
-router.put('/:id', apartmentController.updateApartmentById);
-router.delete('/:id', apartmentController.deleteApartmentById);
+router.post('/createApartment', apartmentController.createApartment);
+router.get('/GetAllApartment', apartmentController.getAllApartments);
+router.get('/getApartmentById/:id', apartmentController.getApartmentById);
+router.put('/updateApartmentById/:id', apartmentController.updateApartmentById);
+router.delete('/deleteApartmentById/:id', apartmentController.deleteApartmentById);
 
 module.exports = router;

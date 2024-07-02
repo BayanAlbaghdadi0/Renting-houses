@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import houseImage from "../../../assets/matt-mutlu-unsplash.jpg";
 import { useSignup } from "../../../hooks/useSignUp.jsx";
+
 export const Signup = () => {
   const [inputs, setInputs] = useState({
     username: "",
