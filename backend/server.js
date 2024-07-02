@@ -16,6 +16,8 @@ const MONGO_URL = process.env.MONGO_URL;
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
+
 const connectionDataBase = require("./db/connectDb");
 
 app.use("/apartment", appatmentrouter);
@@ -23,7 +25,6 @@ app.use("/auth", loginrouter);
 app.use("/filter", filterrouter);
 app.use("/client", clientrouter);
 app.use("/owner", ownerrouter);
-
 connectionDataBase(MONGO_URL);
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

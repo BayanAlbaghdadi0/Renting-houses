@@ -16,6 +16,7 @@ function MyComponent() {
   };
 
   return (
+<<<<<<< HEAD
     <FormContext.Provider
       value={{
         selectedFile,
@@ -27,6 +28,21 @@ function MyComponent() {
         description,
       }}
     >
+=======
+    <div>
+      <div
+        tabIndex={0}
+        className="bg-primary text-primary-content focus:bg-secondary focus:text-secondary-content collapse mt-4 m-auto w-2/3"
+      >
+        <div className="collapse-title">There is little left</div>
+        <div className="collapse-content">
+          <p>
+            Fill in the home details and the process will be completed
+            successfully
+          </p>
+        </div>
+      </div>
+>>>>>>> 2f546a0924c68fe6913c01c55afa7c26abca90e0
       <form className="space-y-4 flex flex-col items-center justify-center mt-4 w-full">
         <div className="">
           <div className="form-control w-full ">
@@ -51,6 +67,7 @@ function MyComponent() {
         <div className="flex flex-col gap-4 ">
           <label className="input input-bordered flex items-center gap-2">
             Salary
+<<<<<<< HEAD
             <input
               type="number"
               className="grow"
@@ -58,6 +75,23 @@ function MyComponent() {
               value={salary}
               onChange={(e) => setSalary(e.target.value)}
             />
+=======
+            <input type="number" className="grow" placeholder="$" />
+          </label>
+          <label className="input input-bordered flex items-center gap-2">
+            <PiMapPinAreaFill />
+            <input type="number" className="grow" placeholder="Area" />
+          </label>
+        </div>
+        <div className="flex flex-col md:flex-row gap-4 ">
+          <label className="input input-bordered flex items-center gap-2">
+            <MdBedroomParent />
+            <input type="number" className="grow" placeholder="5" />
+          </label>
+          <label className="input input-bordered flex items-center gap-2">
+            <BsBuildingsFill />
+            <input type="number" className="grow" placeholder="flor hight" />
+>>>>>>> 2f546a0924c68fe6913c01c55afa7c26abca90e0
           </label>
           {/* ... الحقول الأخرى */}
         </div>
@@ -71,7 +105,13 @@ function MyComponent() {
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
         </div>
+<<<<<<< HEAD
         {/* زر الإرسال */}
+=======
+        <Link to="/">
+          <button className="btn btn-outline btn-success">Success</button>
+        </Link>
+>>>>>>> 2f546a0924c68fe6913c01c55afa7c26abca90e0
       </form>
     </FormContext.Provider>
   );

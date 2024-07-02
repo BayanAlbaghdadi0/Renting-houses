@@ -34,12 +34,12 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4" to="/about">
+              <Link className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4" to="/login">
                 login
               </Link>
             </li>
             <li>
-              <Link className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4" to="/about">
+              <Link className="hover:text-blue-500 text-white font-bold hover:underline hover:underline-offset-4" to="/signup">
                 Signup
               </Link>
             </li>
