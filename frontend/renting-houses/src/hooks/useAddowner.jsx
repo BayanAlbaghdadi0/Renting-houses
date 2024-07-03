@@ -93,16 +93,15 @@ function handleInputError({
   Descrebtion,
 }) {
   if (
-    
-      username||
-      email||
-      phoneNumber||
-      RoomNumber||
-      FloorNumber||
-      City||
-      Salary||
-      Area||
-      Descrebtion
+    !username ||
+    !email ||
+    !phoneNumber ||
+    !RoomNumber ||
+    !FloorNumber ||
+    !City ||
+    !Salary ||
+    !Area ||
+    !Descrebtion
   ) {
     toast.error("Please fill the required fields");
     return false;
