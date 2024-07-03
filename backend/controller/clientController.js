@@ -1,5 +1,5 @@
 const Client=require('../model/clientModel')
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 
 // {
@@ -44,7 +44,7 @@ async function createClient(req, res) {
   try {
     const { email, username, password, address, phone,role } = req.body;
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    // const hashedPassword = await bcrypt.hash(password, 10);
 
     const newClient = new Client({
       email,
