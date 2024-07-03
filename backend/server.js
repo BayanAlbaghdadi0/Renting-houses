@@ -17,7 +17,7 @@ const port =5000
 app.use(cors());
 app.use(express.json());
 // app.use(bodyParser.json());
-
+console.log(process.env.MONGO_URL)
 const connectionDataBase = require("./db/connectDb");
 
 app.use("/apartment", appatmentrouter);
