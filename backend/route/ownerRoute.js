@@ -7,9 +7,10 @@ router.post("/", ownerController.createOwner);
 
 router.get("/owners/:id", ownerController.getOwner);
 
+router.get("/owners",ownerController.getAllOwners);
+
 
 router.put("/owners/:id", ownerController.updateOwner);
-
 
 router.delete("/owners/:id", ownerController.deleteOwner);
 
