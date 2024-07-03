@@ -11,10 +11,7 @@ const ownermodel = mongoose.Schema(
     Salary: { type: Number, require: true },
     Area: { type: String, require: true },
     Descrebtion: { type: String, require: true },
-    appartmentId: {
-      type:String,
-      ref:'appartment',
-    },
+ 
 
   },
   {
