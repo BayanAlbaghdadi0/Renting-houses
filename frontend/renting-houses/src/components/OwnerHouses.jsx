@@ -1,5 +1,4 @@
 import React from "react";
-import { MdDeleteOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 const data = [
   {
@@ -40,7 +39,41 @@ const data = [
   },
 ];
 
-export const OwnerHouses = () => {
+export const OwnerHouses =  async () => {
+  const OwnerHouses = async () => {
+  try {
+      const response = await fetch(
+        `http:/localhost:5000/owner/owners`,{
+          method: 'GET',
+          headers: { "Content-Type": "application/json" },
+        });
+      if (!response.ok) {
+        throw new Error("Failed to fetch apartment");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching apartment:", error);
+      return null;
+    }
+  };
+  const HomeOwner = () => {
+    const [owners, setOwners] = useState([]);
+  
+    useEffect(() => {
+      const fetchOwners = async () => {
+        const data = await OwnerHouses();
+        if (data) {
+          setOwners(data);
+        }
+      };
+  
+      fetchOwners();
+    }, []);
+  
+    if (owners.length === 0) {
+      return <div>No owners found</div>;
+    }
   return (
     <div className="overflow-x-auto">
       <table className="table">
@@ -56,24 +89,24 @@ export const OwnerHouses = () => {
         </thead>
         <tbody>
           {/* rows */}
-          {data.map((row) => (
+          {HomeOwner.map((row) => (
             <tr key={row.id}>
               <th></th>
               <td>
                 <div className="flex items-center gap-3">
                   <div className="avatar">
                     <div className="mask mask-squircle h-12 w-12">
-                      <img src={row.avatar} alt={`Avatar of ${row.name}`} />
+                      <img src={HomeOwner.avatar} alt={`Avatar of ${row.name}`} />
                     </div>
                   </div>
                   <div>
-                    <div className="font-bold">{row.name}</div>
-                    <div className="text-sm opacity-50  ">{row.country}</div>
+                    <div className="font-bold">{HomeOwner.name}</div>
+                    <div className="text-sm opacity-50  ">{HomeOwner.country}</div>
                   </div>
                 </div>
               </td>
               <td className="hidden md:block lg:block">
-                {row.company}
+                {HomeOwner.company}
                 <br />
                 <span className="badge badge-ghost badge-sm">{row.job}</span>
               </td>
@@ -118,4 +151,5 @@ export const OwnerHouses = () => {
       </table>
     </div>
   );
-};
+}
+}

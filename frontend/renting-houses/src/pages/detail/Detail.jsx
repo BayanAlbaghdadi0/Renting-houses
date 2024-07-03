@@ -17,7 +17,7 @@ const Detail = () => {
   const findApartmentById = async (apartmentId) => {
     try {
       const response = await fetch(
-        `/apartment/getApartmentById/${apartmentId}`
+        `http://localhost:5000/apartment/getApartmentById/${apartmentId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch apartment");
