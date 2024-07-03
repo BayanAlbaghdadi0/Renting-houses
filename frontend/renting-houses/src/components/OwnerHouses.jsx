@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+
 const fetchOwnerHouses = async () => {
   try {
     const response = await fetch(`http://localhost:5000/owner/owners`, {
