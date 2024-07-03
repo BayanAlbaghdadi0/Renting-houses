@@ -11,18 +11,18 @@ const createApartment = async (req, res) => {
       apartmentprice,
       apartmentdescription,
       appartmentLocation,
-      img,
+    
       appartmentarea,
       countRoom,
       ownerid,
       FloorHight
     } = req.body;
-   
+    const imgArray = req.files.map(file => file.originalname)
     const newApartment = new Apartment({
       apartmentprice: req.body.apartmentprice,
       apartmentdescription: req.body.apartmentdescription,
       appartmentLocation: req.body.appartmentLocation,
-      img: req.body.img,
+      img:imgArray,
       appartmentarea: req.body.appartmentarea,
       countRoom:req.body.countRoom,
       FloorHight:req.body.FloorHight,
