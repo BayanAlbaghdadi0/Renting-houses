@@ -2,8 +2,26 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { PiMapPinAreaFill } from "react-icons/pi";
 import { BsBuildingsFill } from "react-icons/bs";
+import { useState } from "react";
 import { MdBedroomParent } from "react-icons/md";
+import { useAddOwner } from "../../hooks/useAddowner";
 export const AddOwner = () => {
+  const [inputs, setInputs] = useState({
+    username:"",
+    email:"",
+    phoneNumber:"",
+    RoomNumber:"",
+    FloorNumber:"",
+    City:"",
+    Salary:"",
+    Area:"",
+    Descrebtion:"",
+  });
+  const { loading, AddOwner } = useAddOwner();
+  const handelSupmit = async (e) => {
+    e.preventDefault();
+    await AddOwner(inputs);
+  };
   return (
     <div className="mt-10 flex w-full  align-center ">
         

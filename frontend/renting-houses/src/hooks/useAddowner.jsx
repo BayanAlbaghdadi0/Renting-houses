@@ -1,31 +1,111 @@
-const handleSubmit = () => {
-  const formData = useContext(FormContext); // الوصول إلى قيم الـ context
+import toast from "react-hot-toast";
+import { useState } from "react";
 
-  // يمكنك هنا تحديث قيم الـ context بقيم الـ inputs
-  formData.selectedFile = selectedFile;
-  formData.selectedCity = selectedCity;
-  formData.salary = salary;
-  formData.area = area;
-  formData.bedrooms = bedrooms;
-  formData.floorHeight = floorHeight;
-  formData.description = description;
+export const useAddOwner = () => {
+  const [loading, setAddedOner] = useState(false);
 
-  console.log('Updated Form Data:', formData);
-
-  // عمل fetch على API بعد تخزين البيانات داخل الـ context
-  fetch('http://localhost:5000/owner', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(formData),
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Response from API:', data);
-      // يمكنك هنا التعامل مع البيانات المسترجعة من الAPI
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
+  const AddOwner = async ({
+    username,
+    email,
+    phoneNumber,
+    RoomNumber,
+    FloorNumber,
+    City,
+    Salary,
+    Area,
+    Descrebtion,
+  }) => {
+    console.log({
+      username,
+      email,
+      phoneNumber,
+      RoomNumber,
+      FloorNumber,
+      City,
+      Salary,
+      Area,
+      Descrebtion,
     });
+    const success = handleInputError({
+      username,
+      email,
+      phoneNumber,
+      RoomNumber,
+      FloorNumber,
+      City,
+      Salary,
+      Area,
+      Descrebtion,
+    });
+    if (!success) {
+      return;
+    }
+    setAddedOner(true);
+    try {
+      const response = await fetch("http://localhost:5000/owner", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+
+        body: JSON.stringify({
+          username,
+          email,
+          phoneNumber,
+          RoomNumber,
+          FloorNumber,
+          City,
+          Salary,
+          Area,
+          Descrebtion,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok.");
+      }
+
+      const data = await response.json(); //
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      console.log(data);
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setAddedOner(false);
+      console.log("Add owner successfully");
+    }
+  };
+
+  return { loading, AddOwner };
+};
+
+function handleInputError({
+  username,
+  email,
+  phoneNumber,
+  RoomNumber,
+  FloorNumber,
+  City,
+  Salary,
+  Area,
+  Descrebtion,
+}) {
+  if (
+    
+      username||
+      email||
+      phoneNumber||
+      RoomNumber||
+      FloorNumber||
+      City||
+      Salary||
+      Area||
+      Descrebtion
+  ) {
+    toast.error("Please fill the required fields");
+    return false;
+  }
+  return true;
 }
