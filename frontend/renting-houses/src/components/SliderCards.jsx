@@ -9,8 +9,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { useAuth } from "../../src/hooks/useAuth";
-
 const data = [
   {
     image: "/image/hero.png",
@@ -65,9 +65,26 @@ const data = [
 function SliderCards() {
   const navigate = useNavigate();
   const { user } = useAuth();
-  const handleDetailClick = () => {
+  const [loading, setLoading] = useState(false);
+  const handleDetailClick = async () => {
     if (user) {
-      navigate("/detail");
+      try {
+        setLoading(true);
+        const response = await fetch(
+          "/apartment/getApartmentById/" + apartmentId
+        );
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Apartment details:", data);
+          navigate(`/detail/${apartmentId}`);
+        } else {
+          console.error("Failed to fetch data");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
     } else {
       navigate("/login"); // or "/signup" depending on your routing
     }
@@ -118,9 +135,10 @@ function SliderCards() {
 
                     <button
                       onClick={handleDetailClick}
+                      disabled={loading} //
                       className="btn btn-outline btn-info py-0 px-5 mx-2 h-0 min-h-6"
                     >
-                      detail
+                      {loading ? "Loading..." : "Details"}
                     </button>
                   </div>
                 </div>

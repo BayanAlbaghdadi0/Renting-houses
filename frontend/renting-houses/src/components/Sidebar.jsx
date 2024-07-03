@@ -9,8 +9,8 @@ export const Sidebar = () => {
     // <div className="drawer drawer-mobile">
     <div>
       <div className="drawer">
-        <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col">
+        <input id="my-drawer-3" type="checkbox" className="drawer-toggle " />
+        <div className="drawer-content flex flex-col ">
           {/* Navbar */}
           <div className="navbar bg-base-300 w-full">
             <div className="flex-none lg:hidden">
@@ -71,7 +71,7 @@ export const Sidebar = () => {
           </div>
           {/* Page content here */}
         </div>
-        <div className="drawer-side z-50 ">
+        <div className="drawer-side z-50  ">
           <label
             htmlFor="my-drawer-3"
             aria-label="close sidebar"

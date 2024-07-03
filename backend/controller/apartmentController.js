@@ -6,8 +6,6 @@ const wellcome = (req, res) => {
 };
 
 const createApartment = async (req, res) => {
-
-
   try {
     const {
       apartmentprice,

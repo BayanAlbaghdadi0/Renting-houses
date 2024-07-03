@@ -14,27 +14,28 @@ import About from "./pages/about/About";
 import { Ownerdetails } from "./pages/ownerdetails/Ownerdetails";
 //hook -> SM
 import { AuthProvider } from "./contexts/AuthContext";
-import { FormProvider } from "./FormContext";
+// import { FormProvider } from "./FormContext";
 
 function App() {
   return (
     <>
       <AuthProvider>
-      <FormProvider>
-        <Routes>
-          <Route path="/login" element={<Login></Login>}></Route>
-          <Route path="/signup" element={<Signup></Signup>}></Route>
-          <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
-          <Route path="/addowner" element={<AddOwner></AddOwner>}></Route>
-          <Route path="/addhome" element={<AddHome />}></Route>
-          <Route path="/detail" element={<Detail></Detail>}></Route>
-          <Route path="/edit" element={<Edit />}></Route>
-          <Route path="/ownerdetails" element={<Ownerdetails />} />
-        </Routes>
-        </FormProvider>
-        <Toaster />
+          <Routes>
+            <Route path="/login" element={<Login></Login>}></Route>
+            <Route path="/signup" element={<Signup></Signup>}></Route>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+            <Route path="/addowner" element={<AddOwner></AddOwner>}></Route>
+            <Route path="/addhome" element={<AddHome />}></Route>
+            <Route
+              path="/detail"
+              element={<Detail></Detail>}
+            ></Route>
+            <Route path="/" element={<Home></Home>}></Route>
+            <Route path="/edit" element={<Edit />}></Route>
+            <Route path="/ownerdetails" element={<Ownerdetails />} />
+          </Routes>
+          <Toaster />
       </AuthProvider>
     </>
   );
