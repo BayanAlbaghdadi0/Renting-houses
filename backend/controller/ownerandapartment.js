@@ -6,16 +6,7 @@ const updateownerandAppartment = async (req, res) => {
     const imgArray = req.files.map(file => file.originalname)
 
       const { id } = req.params;
-      const {
-        apartmentprice,
-        apartmentdescription,
-        appartmentLocation,
-      
-        appartmentarea,
-        countRoom,
-        FloorHight,
-        ownerid,
-      } = req.body;
+   
   
       const updatedAppartment = await Apartment.findByIdAndUpdate(
         id,
@@ -33,12 +24,9 @@ const updateownerandAppartment = async (req, res) => {
         { new: true }
       );
       
-      res.json(updatedAppartment);
-    } catch (error) {
-      res.status(500).json({ message: "حدث خطأ أثناء تعديل بيانات الشقة." });
-    }
+  
 
-    try {
+  
         const updatedOwner = await Owner.findByIdAndUpdate(
           id,
           {
@@ -50,10 +38,12 @@ const updateownerandAppartment = async (req, res) => {
           { new: true }
         );
       
-        return updatedOwner;
+      
       } catch (error) {
         console.log(error);
-        throw error;
+       
       }
+    
+
   };
   
