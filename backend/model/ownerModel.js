@@ -7,10 +7,7 @@ const ownermodel = mongoose.Schema(
     password: { type: String, require: true },
     phone: { type: Number, require: true },
   
-    appartmentId: {
-      type:String,
-      ref:'appartment',
-    },
+ 
 
   },
   {
