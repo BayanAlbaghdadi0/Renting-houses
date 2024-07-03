@@ -1,6 +1,6 @@
 import React from 'react'
-import { Sidebar } from '../../components/Sidebar'
-import { OwnerHouses } from '../../components/OwnerHouses'
+import { Sidebar } from '../../components/Sidebar.jsx'
+import  OwnerHouses  from '../../components/OwnerHouses.jsx'
 export const Dashboard = () => {
   return (
     <div>
