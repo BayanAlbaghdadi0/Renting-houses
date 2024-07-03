@@ -17,27 +17,27 @@ export const AddOwner = () => {
     Area:"",
     Descrebtion:"",
   });
-  const { loading, AddOwner } = useAddOwner();
+  const { loading, AddOwnerfunction } = useAddOwner();
   const handelSupmit = async (e) => {
     e.preventDefault();
-    await AddOwner(inputs);
+    await AddOwnerfunction(inputs);
   };
   return (
     <div className="mt-10 flex w-full  align-center ">
         
       <form className=" flex gap-5 justify-around flex-wrap   ">
         <div className="flex flex-col gap-4 w-1/3">
-          <label className="input input-bordered flex items-center gap-2">
+          <label  className="input input-bordered flex items-center gap-2">
             Name
-            <input type="text" className="grow " placeholder="bayan" />
+            <input value={inputs.username} onChange={e=>setInputs({...inputs,username:e.target.value})} type="text" className="grow " placeholder="bayan" />
           </label>
           <label className="input input-bordered flex items-center gap-2">
             Email
-            <input type="text" className="grow" placeholder="email@.com" />
+            <input value={inputs.email} onChange={e=>setInputs({...inputs,email:e.target.value})} type="text" className="grow" placeholder="email@.com" />
           </label>
           <label className="input input-bordered flex items-center gap-2">
             Phone Number
-            <input type="text" className="grow " placeholder="09" />
+            <input value={inputs.phoneNumber} onChange={e=>setInputs({...inputs,phoneNumber:e.target.value})} type="text" className="grow " placeholder="09" />
           </label>
           <input
             type="file"
@@ -46,11 +46,11 @@ export const AddOwner = () => {
           <div className="flex gap-2 ">
             <label className="input input-bordered flex items-center gap-2">
               <MdBedroomParent />
-              <input type="number" className="grow" placeholder="5" />
+              <input value={inputs.RoomNumber} onChange={e=>setInputs({...inputs,RoomNumber:e.target.value})} type="number" className="grow" placeholder="5" />
             </label>
             <label className="input input-bordered flex items-center gap-2">
               <BsBuildingsFill />
-              <input type="number" className="grow" placeholder="flor hight" />
+              <input value={inputs.FloorNumber} onChange={e=>setInputs({...inputs,FloorNumber:e.target.value})} type="number" className="grow" placeholder="flor hight" />
             </label>
           </div>
         </div>
@@ -58,7 +58,7 @@ export const AddOwner = () => {
         <div className=" flex flex-wrap gap-4 justify-evenly ">
           <div className="form-control  w-full">
             <label className="label">Select city</label>
-            <select className="select select-secondary">
+            <select className="select select-secondary" value={inputs.City} onChange={e=>setInputs({...inputs,City:e.target.value})}>
               <option disabled selected>
                 Damascus
               </option>
@@ -77,16 +77,17 @@ export const AddOwner = () => {
           <div className="flex flex-col gap-4 ">
             <label className="input input-bordered flex items-center gap-2">
               Salary
-              <input type="" className="grow" placeholder="$" />
+              <input value={inputs.Salary} onChange={e=>setInputs({...inputs,Salary:e.target.value})} type="" className="grow" placeholder="$" />
             </label>
             <label className="input input-bordered flex items-center gap-2">
               <PiMapPinAreaFill />
-              <input type="" className="grow" placeholder="Area" />
+              <input value={inputs.Area} onChange={e=>setInputs({...inputs,Area:e.target.value})} type=""  className="grow" placeholder="Area" />
             </label>
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">Description</label>
             <textarea
+            value={inputs.Descrebtion} onChange={e=>setInputs({...inputs,Descrebtion:e.target.value})}
               className="textarea textarea-info"
               placeholder="Bio"
             ></textarea>
@@ -97,7 +98,7 @@ export const AddOwner = () => {
             </div>
             <div className="flex gap-1   ">
               <Link className="h-12 block w-2/3 " to="/">
-                <button className="btn btn-outline btn-success w-full  ">
+                <button className="btn btn-outline btn-success w-full  " onClick={handelSupmit}>
                   Success
                 </button>
               </Link>

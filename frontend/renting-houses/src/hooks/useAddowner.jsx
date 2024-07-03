@@ -4,7 +4,7 @@ import { useState } from "react";
 export const useAddOwner = () => {
   const [loading, setAddedOner] = useState(false);
 
-  const AddOwner = async ({
+  const AddOwnerfunction = async ({
     username,
     email,
     phoneNumber,
@@ -78,7 +78,7 @@ export const useAddOwner = () => {
     }
   };
 
-  return { loading, AddOwner };
+  return { loading, AddOwnerfunction };
 };
 
 function handleInputError({
