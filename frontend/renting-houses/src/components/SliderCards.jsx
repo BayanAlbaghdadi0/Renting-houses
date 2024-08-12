@@ -66,29 +66,39 @@ function SliderCards() {
   const navigate = useNavigate();
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
+ 
+  // const handleDetailClick = async () => {
+    // if (user) {
+    //   try {
+    //     setLoading(true);
+    //     const response = await fetch(
+    //       "/apartment/getApartmentById/" + apartmentId
+    //     );
+    //     if (response.ok) {
+    //       const data = await response.json();
+    //       console.log("Apartment details:", data);
+    //       navigate(`/detail/${apartmentId}`);
+    //     } else {
+    //       console.error("Failed to fetch data");
+    //     }
+    //   } catch (error) {
+    //     console.error("Error fetching data:", error);
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // } else {
+    //   navigate("/login"); // or "/signup" depending on your routing
+    // }
+  // };
+  
   const handleDetailClick = async () => {
     if (user) {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          "/apartment/getApartmentById/" + apartmentId
-        );
-        if (response.ok) {
-          const data = await response.json();
-          console.log("Apartment details:", data);
-          navigate(`/detail/${apartmentId}`);
-        } else {
-          console.error("Failed to fetch data");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false);
-      }
-    } else {
-      navigate("/login"); // or "/signup" depending on your routing
+      navigate('/detail')
     }
-  };
+    else{
+      navigate("/login"); // or "/signup" 
+    }
+  }
   const settings = {
     dots: true,
     infinite: true,

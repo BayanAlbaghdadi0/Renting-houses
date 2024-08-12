@@ -1,46 +1,45 @@
-import React from "react";
-import { MdDeleteOutline } from "react-icons/md";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-const data = [
-  {
-    id: 1,
-    name: "Hart Hagerty",
-    country: "United States",
-    company: "Zemlak, Daniel and Leannon",
-    job: "Desktop Support Technician",
-    color: "Purple",
-    avatar: "https://img.daisyui.com/tailwind-css-component-profile-2@56w.png",
-  },
-  {
-    id: 2,
-    name: "Brice Swyre",
-    country: "China",
-    company: "Carroll Group",
-    job: "Tax Accountant",
-    color: "Red",
-    avatar: "https://img.daisyui.com/tailwind-css-component-profile-3@56w.png",
-  },
-  {
-    id: 3,
-    name: "Marjy Ferencz",
-    country: "Russia",
-    company: "Rowe-Schoen",
-    job: "Office Assistant I",
-    color: "Crimson",
-    avatar: "https://img.daisyui.com/tailwind-css-component-profile-4@56w.png",
-  },
-  {
-    id: 4,
-    name: "Yancy Tear",
-    country: "Brazil",
-    company: "Wyman-Ledner",
-    job: "Community Outreach Specialist",
-    color: "Indigo",
-    avatar: "https://img.daisyui.com/tailwind-css-component-profile-5@56w.png",
-  },
-];
 
-export const OwnerHouses = () => {
+
+const fetchOwnerHouses = async () => {
+  try {
+    const response = await fetch(`http://localhost:5000/owner/owners`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+    console.log(response);
+    if (!response.ok) {
+      throw new Error("Failed to fetch apartment");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching apartment:", error);
+    return null;
+  }
+};
+
+const HomeOwner = () => {
+  const [owners, setOwners] = useState([]);
+
+  useEffect(() => {
+    const fetchOwners = async () => {
+      const data = await fetchOwnerHouses();
+      console.log(data);
+      if (data) {
+        console.log(data);
+        setOwners(data);
+      }
+    };
+
+    fetchOwners();
+  }, []);
+
+  if (owners.length === 0) {
+    return <div>No owners found</div>;
+  }
+
   return (
     <div className="overflow-x-auto">
       <table className="table">
@@ -56,7 +55,7 @@ export const OwnerHouses = () => {
         </thead>
         <tbody>
           {/* rows */}
-          {data.map((row) => (
+          {owners.map((row) => (
             <tr key={row.id}>
               <th></th>
               <td>
@@ -68,17 +67,16 @@ export const OwnerHouses = () => {
                   </div>
                   <div>
                     <div className="font-bold">{row.name}</div>
-                    <div className="text-sm opacity-50  ">{row.country}</div>
+                    <div className="text-sm opacity-50">{row.country}</div>
                   </div>
                 </div>
               </td>
               <td className="hidden md:block lg:block">
                 {row.company}
                 <br />
-                <span className="badge badge-ghost badge-sm">{row.job}</span>
+                <span className="badge badge-ghast badge-sm">{row.job}</span>
               </td>
               <th className="">
-                {" "}
                 <button className="btn btn-circle btn-outline btn-sm hover:text-red-600">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -96,16 +94,16 @@ export const OwnerHouses = () => {
                   </svg>
                 </button>
               </th>
-              <th className="flex gap-2 ">
+              <th className="flex gap-2">
                 <Link to="/ownerdetails">
-                <button className="btn btn-ghost btn-xs hidden md:block lg:block ">
-                  details
-                </button>
+                  <button className="btn btn-ghost btn-xs hidden md:block lg:block">
+                    details
+                  </button>
                 </Link>
-                <Link to ="/edit">
-                <button className="btn btn-outline btn-warning btn-xs ">
-                  Edit
-                </button>
+                <Link to="/edit">
+                  <button className="btn btn-outline btn-warning btn-xs">
+                    Edit
+                  </button>
                 </Link>
               </th>
             </tr>
@@ -119,3 +117,5 @@ export const OwnerHouses = () => {
     </div>
   );
 };
+
+export default HomeOwner;

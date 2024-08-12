@@ -34,7 +34,14 @@ const getOwner = async (req, res) => {
     res.status(500).json({ error: "Failed to get owner" });
   }
 };
-
+const getAllOwners= async (req, res)=>{
+  try {
+    const Owner = await Owner.find();
+    res.json(Owner);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to get apartments" });
+  }
+}
 
 const updateOwner = async (req, res) => {
   try {
@@ -64,4 +71,4 @@ const deleteOwner = async (req, res) => {
   }
 };
 
-module.exports={createOwner,getOwner,updateOwner,deleteOwner,test}
+module.exports={createOwner,getAllOwners,getOwner,updateOwner,deleteOwner,test}
