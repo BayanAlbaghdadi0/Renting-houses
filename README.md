@@ -1,2 +1,4 @@
 # Renting-houses
-It is a website designed to solve the problem of real estate buyers and the excessive fees they charge for their services In addition, it makes it easier for university students to find homes near their universities
+•	Developed a platform for listing and renting houses with advanced search filters, secure user authentication, property listing management, and efficient data fetching using React Query. 
+•	Technologies Used: MERN Stack, Tailwind CSS, React Query 
+•	Features : Advanced search functionality with filters for location, price, and property type, Secure user authentication and profile management, Responsive design ensuring optimal usability on all devices.
